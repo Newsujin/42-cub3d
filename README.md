@@ -144,3 +144,10 @@ miniLibX를 사용한 나의 첫 RayCaster
         
     - *If any misconfiguration of any kind is encountered in the file, the program must exit properly and return "Error\n" followed by an explicit error message of your choice.*
     - 맵 파일에서 잘못된 구성이 발견되었을 경우, 프로그램을 올바르게 종료하고 "Error\n" 을 반환한 후, 여러분이 정한 명시적 오류 메시지가 표시되어야 합니다.
+ 
+# Examples
+<img width="976" alt="image" src="https://github.com/dpfls0922/42-cub3d/assets/83818069/eecdd7a5-782c-419c-812e-e45ab838d005">
+Figure VI.1: Wolfeinstein3D original game usinfg RayCasting. 그림 VI.1: RayCasting을 사용한 오리지널 게임 Wolfeinstein3D.
+<img width="979" alt="image" src="https://github.com/dpfls0922/42-cub3d/assets/83818069/4fdc4521-080d-4e06-8e6c-01a92595d5c4">
+
+Figure VI.2: Example of what your project could look like as per the mandatory part. 그림 VI.2: 필수 과제를 수행했다면 구현되어야 할 예시
