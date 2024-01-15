@@ -1,19 +1,32 @@
-NAME = minishell
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/01/15 15:37:35 by yerilee           #+#    #+#              #
+#    Updated: 2024/01/15 15:46:06 by yerilee          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = cub3D
 
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-
-MLX = -lmlx -framework OpenGL -framework AppKit
+MLX_DIR = ./mlx
+MLX = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 
 SRCS = main.c\
 
 OBJS = $(SRCS:.c=.o)
 
-al:	$(NAME)
+all:	$(NAME)
 
 $(NAME): $(OBJS)
+	@make -C $(MLX_DIR)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(MLX)
 
 
@@ -21,7 +34,8 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	@make -C $(MLX_DIR) clean
+	@rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
