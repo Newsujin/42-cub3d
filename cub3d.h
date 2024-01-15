@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:36:08 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/15 16:41:56 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/15 16:42:53 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_player
 	float	x;
 	float	y;
 	float	fov;
+	float	angle;
 }	t_player;
 
 typedef struct s_game
