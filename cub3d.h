@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:36:08 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/15 15:57:11 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/15 16:40:08 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@
 
 # define WIN_WIDTH	1920
 # define WIN_HEIGHT	1080
+
+typedef struct s_key
+{
+	int	move_forward;
+	int	move_backward;
+	int	move_right;
+	int	move_left;
+}	t_key;
 
 typedef struct s_game
 {
