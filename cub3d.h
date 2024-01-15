@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:36:08 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/15 16:42:53 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/15 16:53:13 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_game
 	void		*win;
 	char		*map;
 	int			fd;
+	t_player	player;
 }	t_game;
 
 #endif
