@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:36:08 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/15 16:53:13 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/16 16:40:27 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct s_key
 	int	move_backward;
 	int	move_right;
 	int	move_left;
+	int	rotate_left;
+	int	rotate_right;
 }	t_key;
 
 typedef struct s_player
