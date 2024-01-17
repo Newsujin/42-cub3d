@@ -6,7 +6,7 @@
 #    By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 15:37:35 by yerilee           #+#    #+#              #
-#    Updated: 2024/01/15 15:46:06 by yerilee          ###   ########.fr        #
+#    Updated: 2024/01/17 20:00:42 by yerilee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ CFLAGS = -Wall -Wextra -Werror
 MLX_DIR = ./mlx
 MLX = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 
-SRCS = main.c\
+SRCS = main.c \
+		execution/executing.c execution/init.c execution/utils.c\
 
 OBJS = $(SRCS:.c=.o)
 
