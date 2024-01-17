@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:01:17 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/17 19:49:42 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/17 22:56:08 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,12 @@ typedef struct s_dda
 
 typedef struct s_data
 {
+	char			*no;
+	char			*so;
+	char			*we;
+	char			*ea;
+	int				floor;
+	int				ceiling;
 	char			**map;
 	char			orientation;
 	double			x;
