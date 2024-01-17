@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:36:08 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/17 15:43:59 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/17 19:46:26 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include <math.h>
-# include "mlx/mlx.h"
 
 # include "struct.h"
+# include "executing.h"
 // # include "parsing.h"
+
+void	executing(t_data *data);
 
 #endif
