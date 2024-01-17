@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:03:11 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/17 15:44:08 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/17 16:21:49 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 # include <stdbool.h>
 // #include "parsing.h"
+# include "struct.h"
+# include "mlx/mlx.h"
 
-# define WIN_WIDTH	1920
-# define WIN_HEIGHT	1080
+# define WIDTH	1920
+# define HEIGHT	1080
 
 #endif
