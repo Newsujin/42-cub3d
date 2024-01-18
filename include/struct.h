@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:01:17 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 11:31:43 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/18 14:28:11 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 
 # include <stdbool.h>
 # include "../mlx/mlx.h"
+
+typedef struct s_key
+{
+	int	move_right;
+	int	move_left;
+	int	move_backward;
+	int	move_forward;
+	int	rotate_left;
+	int	rotate_right;
+}	t_key;
 
 typedef struct s_raycast
 {
@@ -61,6 +71,7 @@ typedef struct s_data
 	double			dir_y;
 	double			plane_x;
 	double			plane_y;
+	t_key			key_flag;
 }	t_data;
 
 typedef struct s_mlx
