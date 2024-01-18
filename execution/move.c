@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 20:13:52 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 15:03:45 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/18 15:46:57 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,11 @@ void	rotate_vectors(t_mlx *mlx, int orientation)
 	mlx->data->plane_y = sin(angle) * plane_x + cos(angle) * plane_y;
 }
 
-// double	convert_degree_to_radian(double degree)
-// {
-// 	return (degree * (M_PI / 180));
-// }
-
 // static void	move_player(t_mlx *mlx, double x_change, double y_change)
 // {
 // 	char	**map;
 
 // 	map = mlx->data->map;
-// 	(void) x_change;
-// 	(void) y_change;
 // 	// if (can_move)
 // 	// 	mlx->data->pos_x += x_change;
 // 	// if (can_move)
