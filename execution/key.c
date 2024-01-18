@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:59:39 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 15:03:24 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/18 15:19:37 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,38 +27,38 @@ int	destroy_win(int keycode, t_data *data)
 
 int	key_detector(int keycode, t_data *data)
 {
-	if (keycode == 0)
-		data->key_flag.move_left = 1;
-	if (keycode == 1)
-		data->key_flag.move_backward = 1;
-	if (keycode == 2)
-		data->key_flag.move_right = 1;
-	if (keycode == 13)
+	if (keycode == KEY_W)
 		data->key_flag.move_forward = 1;
-	if (keycode == 123)
+	if (keycode == KEY_S)
+		data->key_flag.move_backward = 1;
+	if (keycode == KEY_D)
+		data->key_flag.move_right = 1;
+	if (keycode == KEY_A)
+		data->key_flag.move_left = 1;
+	if (keycode == KEY_LEFT)
 		data->key_flag.rotate_left = 1;
-	if (keycode == 124)
+	if (keycode == KEY_RIGHT)
 		data->key_flag.rotate_right = 1;
-	if (keycode == 53)
+	if (keycode == KEY_ESC)
 		destroy_win(53, data);
 	return (0);
 }
 
 int	key_released(int keycode, t_data *data)
 {
-	if (keycode == 0)
-		data->key_flag.move_left = 0;
-	if (keycode == 1)
-		data->key_flag.move_backward = 0;
-	if (keycode == 2)
-		data->key_flag.move_right = 0;
-	if (keycode == 13)
+	if (keycode == KEY_W)
 		data->key_flag.move_forward = 0;
-	if (keycode == 123)
+	if (keycode == KEY_S)
+		data->key_flag.move_backward = 0;
+	if (keycode == KEY_D)
+		data->key_flag.move_right = 0;
+	if (keycode == KEY_A)
+		data->key_flag.move_left = 0;
+	if (keycode == KEY_LEFT)
 		data->key_flag.rotate_left = 0;
-	if (keycode == 124)
+	if (keycode == KEY_RIGHT)
 		data->key_flag.rotate_right = 0;
-	if (keycode == 53)
+	if (keycode == KEY_ESC)
 		destroy_win(53, data);
 	return (0);
 }
