@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:59:12 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 11:33:09 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/18 22:22:20 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,10 @@ double	ft_abs(double num)
 bool	check_wall(t_mlx *mlx, t_dda *dda)
 {
 	bool	hit;
+	char	pixel = mlx->data->map[dda->map_y][dda->map_x];
 
 	hit = false;
-
-	/* ... */
-	(void) mlx;
-	(void) dda;
-	/* ... */
-
+	if (dda->map_x > -1 && dda->map_y > -1 && pixel == '1')
+		hit = true;
 	return (hit);
 }
