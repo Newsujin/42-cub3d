@@ -6,11 +6,11 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/17 22:50:37 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/18 11:32:28 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../executing.h"
+#include "../include/executing.h"
 
 t_dda	*apply_dda(t_mlx *mlx, t_raycast *ray, t_dda *dda)
 {

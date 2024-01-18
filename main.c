@@ -6,11 +6,11 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:37:09 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/17 19:19:26 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/18 11:31:54 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "include/cub3d.h"
 
 void	error(char *s)
 {

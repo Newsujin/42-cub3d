@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 19:59:12 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 11:33:09 by yerilee          ###   ########.fr       */
+/*   Created: 2024/01/15 15:36:08 by yerilee           #+#    #+#             */
+/*   Updated: 2024/01/17 19:46:26 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/executing.h"
+#ifndef CUB3D_H
+# define CUB3D_H
 
-double	ft_abs(double num)
-{
-	if (num < 0)
-		return (-num);
-	return (num);
-}
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
 
-bool	check_wall(t_mlx *mlx, t_dda *dda)
-{
-	bool	hit;
+# include "struct.h"
+# include "executing.h"
+// # include "parsing.h"
 
-	hit = false;
+void	executing(t_data *data);
 
-	/* ... */
-	(void) mlx;
-	(void) dda;
-	/* ... */
-
-	return (hit);
-}
+#endif

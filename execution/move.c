@@ -6,11 +6,11 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 20:13:52 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/17 22:49:56 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/18 11:33:27 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../executing.h"
+#include "../include/executing.h"
 
 void	rotate_vectors(t_mlx *mlx, int orientation)
 {

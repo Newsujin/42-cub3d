@@ -6,11 +6,11 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:59:33 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/17 19:59:51 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/18 11:32:39 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../executing.h"
+#include "../include/executing.h"
 
 void	init_direction_vectors(t_mlx *mlx)
 {
