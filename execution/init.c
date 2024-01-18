@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:59:33 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 11:32:39 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/18 15:29:19 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,13 @@ void	init_dda(t_dda *dda, t_raycast *ray, t_mlx *mlx)
 {
 	dda->map_x = (int)(mlx->data->pos_x);
 	dda->map_y = (int)(mlx->data->pos_y);
-	if (ray->ray_dir_x != 0)
+	if (ray->ray_dir_x == 0)
+		dda->delta_dist_x = 1e30;
+	else
 		dda->delta_dist_x = ft_abs(1 / ray->ray_dir_x);
-	if (ray->ray_dir_y != 0)
+	if (ray->ray_dir_y == 0)
+		dda->delta_dist_y = 1e30;
+	else
 		dda->delta_dist_y = ft_abs(1 / ray->ray_dir_y);
 	dda->step_x = 1;
 	dda->step_y = 1;
