@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 15:08:20 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/18 16:02:48 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,12 @@ void	draw_vertical_line(t_mlx *mlx, t_raycast ray, int line, t_dda *dda)
 	(void) dda;
 	while (y < HEIGHT)
 	{
-		/* ... */
+		// if (y < ray.start && y < 이미지 높이 && x < 이미지 너비)
+		// 	배경
+		// else if (y >= ray.start && y <= ray.end && y < 이미지 높이 && x < 이미지 너비)
+		// 	스프라이트
+		// else if (y > ray.end && y < 이미지 높이 && x x < 이미지 너비)
+		// 배경
 		y++;
 	}
 }
