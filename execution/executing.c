@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 17:24:33 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:25:51 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ t_dda	*apply_dda(t_mlx *mlx, t_raycast *ray, t_dda *dda)
 		{
 			dda->side_dist_x += dda->delta_dist_x;
 			dda->map_x += dda->step_x;
-			dda->side = WALL_Y;
+			dda->side = WALL_X;
 		}
 		else
 		{
 			dda->side_dist_y += dda->delta_dist_y;
 			dda->map_y += dda->step_y;
-			dda->side = WALL_X;
+			dda->side = WALL_Y;
 		}
 		hit = check_wall(mlx, dda);
 	}
