@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:03:11 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 17:24:25 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/18 17:26:18 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 # define RIGHT 2
 # define POS_X 1
 # define POS_Y -1
-# define WALL_Y 0
-# define WALL_X 1
+# define WALL_X 0
+# define WALL_Y 1
 
 # define KEY_ESC 53
 # define KEY_PRESS 2
