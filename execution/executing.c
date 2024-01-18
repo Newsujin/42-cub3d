@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 17:25:51 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/18 21:10:42 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,13 @@ t_dda	*apply_dda(t_mlx *mlx, t_raycast *ray, t_dda *dda)
 void	shoot_ray(t_mlx *mlx, t_raycast *ray, t_dda *dda)
 {
 	apply_dda(mlx, ray, dda);
-	if (dda->side == 0)
+	if (dda->side == WALL_X)
 		dda->perp_wall_dist = dda->side_dist_x - dda->delta_dist_x;
 	else
 		dda->perp_wall_dist = dda->side_dist_y - dda->delta_dist_y;
-	if (dda->perp_wall_dist != 0)
-		dda->wall_height = (int)((double)HEIGHT / dda->perp_wall_dist);
+	if (dda->perp_wall_dist == 0)
+		dda->perp_wall_dist = 1e30;
+	dda->wall_height = (int)((double)HEIGHT / dda->perp_wall_dist);
 	ray->start = -(dda->wall_height) / 2 + HEIGHT / 2;
 	if (ray->start < 0)
 		ray->start = 0;
