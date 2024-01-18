@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 20:13:52 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 15:46:57 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/18 22:16:36 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ void	rotate_vectors(t_mlx *mlx, int orientation)
 // 	char	**map;
 
 // 	map = mlx->data->map;
-// 	// if (can_move)
-// 	// 	mlx->data->pos_x += x_change;
-// 	// if (can_move)
-// 	// 	mlx->data->pos_y += y_change;
+// 	if (map[(int)mlx->data->pos_y][(int)(mlx->data->pos_x + x_change)] == 0)
+// 		mlx->data->pos_x += x_change;
+// 	if (map[(int)(mlx->data->pos_y + y_change)][(int)mlx->data->pos_x] == 0)
+// 		mlx->data->pos_y += y_change;
 // }
 
 // static void	handle_movement(t_key *key, t_mlx *mlx)
