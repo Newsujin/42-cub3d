@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 11:32:28 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/18 14:42:14 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,10 @@ void	executing(t_data *data)
 	init_raycast(&mlx);
 	// image
 	// texture
-	raycasting(&mlx);
+	// raycasting(&mlx);
 	// key_hook
 	// mlx_loop_hook(mlx.init, handle_key, &mlx);
+	key_pressed(&mlx);
 	mlx_loop(mlx.init);
 	// exit;
 }

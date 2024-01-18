@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:03:11 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 11:32:09 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/18 15:03:29 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define EXECUTING_H
 
 # include <stdbool.h>
+#include <stdlib.h>
+#include <stdio.h>
 # include <math.h>
 // #include "parsing.h"
 # include "struct.h"
@@ -49,8 +51,14 @@ void	init_dda(t_dda *dda, t_raycast *ray, t_mlx *mlx);
 /* move */
 void		rotate_vectors(t_mlx *mlx, int orientation);
 // static void	move_player(t_mlx *mlx, double x_change, double y_change);
-// static void	handle_movement(t_mlx *mlx);
-// void			handle_key(void *arg);
+// static void	handle_movement(t_key *key, t_mlx *mlx);
+
+/* key */
+int	key_pressed(t_mlx *mlx);
+int	key_detector(int keycode, t_data *data);
+int	key_released(int keycode, t_data *data);
+int	update_frame(t_mlx *mlx);
+int	destroy_win(int keycode, t_data *data);
 
 /* utils */
 double	ft_abs(double num);
