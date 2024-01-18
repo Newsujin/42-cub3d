@@ -6,7 +6,7 @@
 #    By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 15:37:35 by yerilee           #+#    #+#              #
-#    Updated: 2024/01/17 21:51:47 by yerilee          ###   ########.fr        #
+#    Updated: 2024/01/18 15:01:08 by yerilee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ MLX_DIR = ./mlx
 MLX = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 
 SRCS = main.c \
-		execution/executing.c execution/init.c execution/move.c execution/utils.c \
+		execution/executing.c execution/init.c execution/key.c execution/move.c execution/utils.c \
 
 OBJS = $(SRCS:.c=.o)
 
