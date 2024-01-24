@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:37:09 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 11:31:54 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/24 21:26:30 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,17 @@ void	error(char *s)
 		write(1, &s[i], 1);
 		i++;
 	}
-	exit(0);
+	exit(0); //에러인데 0 반환인 이유?
 }
 
 int	main(int argc, char **argv)
 {
 	t_data	data;
+	t_game	game;
 
 	(void)argv;
-	if (argc != 2)
+	if (argc != 2 || check_argv(argv[1]))
 		error("Error\n");
-	// argv[1] 입력값 유효성 체크 추가하기
-
-	// init_data(data, argv[1])
-	// parsing
+	parsing(&game, argv[1]);
 	executing(&data);
 }
