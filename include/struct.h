@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:01:17 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/24 17:04:16 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/24 17:11:58 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdbool.h>
 # include "../mlx/mlx.h"
 
-enum e_orientation
+enum e_direction
 {
 	NORTH,
 	SOUTH,
@@ -57,7 +57,7 @@ typedef struct s_dda
 	int		step_x;
 	int		step_y;
 	int		side;
-	int		orientation;
+	int		direction;
 	int		wall_height;
 }	t_dda;
 
@@ -70,7 +70,7 @@ typedef struct s_data
 	int				floor;
 	int				ceiling;
 	char			**map;
-	char			orientation;
+	char			direction;
 	double			x;
 	double			y;
 	double			pos_x;

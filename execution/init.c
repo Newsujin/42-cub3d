@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:59:33 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 15:29:19 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/24 17:11:20 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	init_direction_vectors(t_mlx *mlx)
 	mlx->data->pos_y = mlx->data->x;
 	mlx->data->dir_x = 0;
 	mlx->data->dir_y = 0;
-	if (mlx->data->orientation == 'S')
+	if (mlx->data->direction == 'S')
 		mlx->data->dir_y = 1;
-	else if (mlx->data->orientation == 'N')
+	else if (mlx->data->direction == 'N')
 		mlx->data->dir_y = -1;
-	else if (mlx->data->orientation == 'E')
+	else if (mlx->data->direction == 'E')
 		mlx->data->dir_x = 1;
-	else if (mlx->data->orientation == 'W')
+	else if (mlx->data->direction == 'W')
 		mlx->data->dir_x = -1;
 }
 
@@ -35,13 +35,13 @@ void	init_raycast(t_mlx *mlx)
 
 	dir_x = 0;
 	dir_y = 0;
-	if (mlx->data->orientation == 'S')
+	if (mlx->data->direction == 'S')
 		dir_y = 1;
-	else if (mlx->data->orientation == 'N')
+	else if (mlx->data->direction == 'N')
 		dir_y = -1;
-	else if (mlx->data->orientation == 'E')
+	else if (mlx->data->direction == 'E')
 		dir_x = 1;
-	else if (mlx->data->orientation == 'W')
+	else if (mlx->data->direction == 'W')
 		dir_x = -1;
 	mlx->data->plane_x = -(dir_y) * 0.66;
 	mlx->data->plane_y = dir_x * 0.66;

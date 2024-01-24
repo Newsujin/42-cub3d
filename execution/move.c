@@ -6,13 +6,13 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 20:13:52 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 22:16:36 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/24 17:11:30 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/executing.h"
 
-void	rotate_vectors(t_mlx *mlx, int orientation)
+void	rotate_vectors(t_mlx *mlx, int direction)
 {
 	double	angle;
 	double	dir_x = mlx->data->dir_x;
@@ -21,7 +21,7 @@ void	rotate_vectors(t_mlx *mlx, int orientation)
 	double	plane_y = mlx->data->plane_y;
 
 	angle = ROTATION_SPEED * (M_1_PI / 180.0);
-	if (orientation == LEFT)
+	if (direction == LEFT)
 		angle = -angle;
 	mlx->data->dir_x = cos(angle) * dir_x - sin(angle) * dir_y;
 	mlx->data->dir_y = sin(angle) * dir_x + cos(angle) * dir_y;

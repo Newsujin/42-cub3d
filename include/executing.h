@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:03:11 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/24 17:07:53 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/24 17:12:01 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	init_side_dist(t_dda *dda, t_mlx *mlx, t_raycast *ray);
 void	init_dda(t_dda *dda, t_raycast *ray, t_mlx *mlx);
 
 /* move */
-void		rotate_vectors(t_mlx *mlx, int orientation);
+void		rotate_vectors(t_mlx *mlx, int direction);
 // static void	move_player(t_mlx *mlx, double x_change, double y_change);
 // static void	handle_movement(t_key *key, t_mlx *mlx);
 
