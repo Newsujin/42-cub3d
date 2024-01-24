@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:01:17 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 14:28:11 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/24 17:04:16 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 
 # include <stdbool.h>
 # include "../mlx/mlx.h"
+
+enum e_orientation
+{
+	NORTH,
+	SOUTH,
+	EAST,
+	WEST
+};
 
 typedef struct s_key
 {

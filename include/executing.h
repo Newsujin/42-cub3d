@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:03:11 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 17:26:18 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/24 17:07:53 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	destroy_win(int keycode, t_data *data);
 /* utils */
 double	ft_abs(double num);
 bool	check_wall(t_mlx *mlx, t_dda *dda);
+int		find_collision_wall_direction(t_raycast *ray, t_dda dda, int side);
 
 /* executing */
 t_dda	*apply_dda(t_mlx *mlx, t_raycast *ray, t_dda *dda);
