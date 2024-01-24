@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:01:17 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/24 17:11:58 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/24 17:18:40 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ typedef struct s_mlx
 {
 	t_data		*data;
 	void		*init;
+	void		*img;
 	void		*win;
 }	t_mlx;
 

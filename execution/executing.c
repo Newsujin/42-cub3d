@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/24 17:14:58 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/24 17:25:48 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,13 @@ void	executing(t_data *data)
 	mlx.data = data;
 	init_direction_vectors(&mlx);
 	init_raycast(&mlx);
-	// image
+	mlx.img = mlx_new_image(mlx.init, WIDTH, HEIGHT);
+	// if (mlx.img == NULL) error 처리
+	mlx_image_to_window(mlx.init, mlx.img, 0, 0);
 	// texture
 	// raycasting(&mlx);
 	key_pressed(&mlx);
 	mlx_loop(mlx.init);
 	// exit;
 }
+
