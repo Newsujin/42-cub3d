@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/18 21:10:42 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/24 17:14:58 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	shoot_ray(t_mlx *mlx, t_raycast *ray, t_dda *dda)
 	ray->end = dda->wall_height / 2 + HEIGHT / 2;
 	if (ray->end >= HEIGHT)
 		ray->end = HEIGHT - 1;
-	// texture
+	find_collision_wall_direction(ray, *dda, dda->side);
 }
 
 void	draw_vertical_line(t_mlx *mlx, t_raycast ray, int line, t_dda *dda)
