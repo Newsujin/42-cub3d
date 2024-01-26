@@ -51,7 +51,7 @@ void	init_side_dist(t_dda *dda, t_mlx *mlx, t_raycast *ray);
 void	init_dda(t_dda *dda, t_raycast *ray, t_mlx *mlx);
 
 /* move */
-void		rotate_vectors(t_mlx *mlx, int orientation);
+void		rotate_vectors(t_mlx *mlx, int direction);
 // static void	move_player(t_mlx *mlx, double x_change, double y_change);
 // static void	handle_movement(t_key *key, t_mlx *mlx);
 
@@ -65,6 +65,7 @@ int	destroy_win(int keycode, t_data *data);
 /* utils */
 double	ft_abs(double num);
 bool	check_wall(t_mlx *mlx, t_dda *dda);
+int		find_collision_wall_direction(t_raycast *ray, t_dda dda, int side);
 
 /* executing */
 t_dda	*apply_dda(t_mlx *mlx, t_raycast *ray, t_dda *dda);
