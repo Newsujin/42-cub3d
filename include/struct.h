@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:01:17 by yerilee           #+#    #+#             */
 /*   Updated: 2024/01/24 17:18:40 by yerilee          ###   ########.fr       */
@@ -89,5 +89,52 @@ typedef struct s_mlx
 	void		*img;
 	void		*win;
 }	t_mlx;
+
+/* parsing */
+typedef struct s_color
+{
+	int				ceil[3];
+	unsigned int	c_color;
+	int				ceil_flag;
+	int				floor[3];
+	unsigned int	f_color;
+	int				floor_flag;
+}	t_color;
+
+typedef struct s_img
+{
+	void	*img;
+	char	*path;
+	int		*data;
+	int		bpp;
+	int		size_l;
+	int		endian;
+}	t_img;
+
+typedef struct s_player
+{
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+}	t_player;
+
+typedef struct s_game
+{
+	t_player	*player;
+	t_img		*img;
+	t_img		text[4];
+	t_color		*color;
+	void		*mlx;
+	void		*win;
+	int			**buf;
+	char		*map;
+	char		**map_2d;
+	int			height;
+	int			player_cnt;
+	int			fd;
+}	t_game;
 
 #endif

@@ -1,38 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 15:37:09 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/24 21:26:30 by spark2           ###   ########.fr       */
+/*   Created: 2024/01/24 15:20:04 by spark2            #+#    #+#             */
+/*   Updated: 2024/01/24 21:52:48 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/cub3d.h"
+#include "../include/parsing.h"
 
-void	error(char *s)
+int	ft_free_2d(char **str, int flag)
 {
 	int	i;
 
 	i = 0;
-	while (s[i])
+	while (str[i])
 	{
-		write(1, &s[i], 1);
+		free(str[i]);
 		i++;
 	}
-	exit(0); //에러인데 0 반환인 이유?
+	free(str);
+	return (flag);
 }
 
-int	main(int argc, char **argv)
+char	*no_new_line(char *line)
 {
-	t_data	data;
-	t_game	game;
+	int		i;
+	char	*no_newline;
 
-	(void)argv;
-	if (argc != 2 || check_argv(argv[1]))
-		error("Error\n");
-	parsing(&game, argv[1]);
-	executing(&data);
+	if (!line)
+		return (NULL);
+	no_newline = (char *)malloc(sizeof(char) * (ft_strlen(line) + 1));
+	i = 0;
+	while (line[i])
+	{
+		no_newline[i] = line[i];
+		if (line[i] == '\n')
+			break ;
+		i++;
+	}
+	no_newline[i] = '\0';
+	return (no_newline);
 }

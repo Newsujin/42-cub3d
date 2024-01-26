@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+         #
+#    By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 15:37:35 by yerilee           #+#    #+#              #
-#    Updated: 2024/01/18 15:01:08 by yerilee          ###   ########.fr        #
+#    Updated: 2024/01/24 17:30:57 by spark2           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,22 +14,24 @@ NAME = cub3D
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 MLX_DIR = ./mlx
 MLX = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 
+GNL = parsing/get_next_line/get_next_line.c parsing/get_next_line/get_next_line_utils.c
+
 SRCS = main.c \
-		execution/executing.c execution/init.c execution/key.c execution/move.c execution/utils.c \
+	execution/executing.c execution/init.c execution/key.c execution/move.c execution/utils.c \
+	parsing/check.c parsing/ft_split.c parsing/init.c parsing/parsing.c parsing/read_map.c parsing/rgb.c \
+	parsing/utils.c
+OBJS = $(SRCS:.c=.o) $(GNL:.c=.o)
 
-OBJS = $(SRCS:.c=.o)
-
-all:	$(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	@make -C $(MLX_DIR)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(MLX)
-
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
