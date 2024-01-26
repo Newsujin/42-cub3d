@@ -6,7 +6,7 @@
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:36:08 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/24 15:28:59 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/26 21:19:26 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@
 # include "parsing.h"
 
 void	error(char *s);
-void	executing(t_data *data);
+void	executing(t_game *game);
 
 #endif

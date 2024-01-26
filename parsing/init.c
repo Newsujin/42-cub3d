@@ -6,7 +6,7 @@
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:51:35 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/24 17:09:52 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/26 23:03:37 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,19 @@ void	init_texture(t_game *game)
 	while (i < 4)
 	{
 		game->text[i].path = NULL;
-		game->text[i].img = NULL;
+		game->text[i].init = NULL;
 		game->text[i].data = NULL;
 		i++;
 	}
+}
+
+void	init_mlx(t_game *game)
+{
+	t_mlx	mlx;
+
+	mlx.init = mlx_init();
+	mlx.win = mlx_new_window(mlx.init, WIDTH, HEIGHT, "cub3D");
+	game->mlx = &mlx;
 }
 
 void	init_game(t_game *game, char *file)
@@ -42,6 +51,7 @@ void	init_game(t_game *game, char *file)
 		game->img == (void *)0)
 		error("malloc Error\n");
 	init_texture(game);
+	init_mlx(game);
 	game->color->ceil_flag = 0;
 	game->color->floor_flag = 0;
 }

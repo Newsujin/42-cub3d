@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 15:37:09 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/26 21:31:57 by spark2           ###   ########.fr       */
+/*   Created: 2023/01/19 14:54:08 by spark2            #+#    #+#             */
+/*   Updated: 2023/03/23 20:05:52 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/cub3d.h"
-
-void	error(char *s)
+int	ft_atoi(const char *str)
 {
-	int	i;
+	int		i;
+	long	sign;
+	long	res;
 
 	i = 0;
-	while (s[i])
+	sign = 1;
+	res = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		write(1, &s[i], 1);
+		if (str[i] == '-')
+			sign = -1;
 		i++;
 	}
-	exit(0); //에러인데 0 반환인 이유?
-}
-
-int	main(int argc, char **argv)
-{
-	t_game	game;
-
-	(void)argv;
-	if (argc != 2 || check_argv(argv[1]))
-		error("Error\n");
-	parsing(&game, argv[1]);
-	// executing(&game);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10 + str[i] - '0';
+		i++;
+	}
+	return ((int)(sign * res));
 }

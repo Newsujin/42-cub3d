@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 15:37:09 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/26 21:31:57 by spark2           ###   ########.fr       */
+/*   Created: 2023/03/13 21:27:16 by spark2            #+#    #+#             */
+/*   Updated: 2024/01/26 22:47:02 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/cub3d.h"
+#include "../include/parsing.h"
 
-void	error(char *s)
+char	*ft_strcpy(const char *string)
 {
-	int	i;
+	char	*temp;
+	int		i;
+	int		count;
 
 	i = 0;
-	while (s[i])
+	count = ft_strlen(string);
+	temp = (char *)malloc(count * sizeof(char) + 1);
+	if (!temp)
+		return (0);
+	while (string[i])
 	{
-		write(1, &s[i], 1);
+		temp[i] = string[i];
 		i++;
 	}
-	exit(0); //에러인데 0 반환인 이유?
-}
-
-int	main(int argc, char **argv)
-{
-	t_game	game;
-
-	(void)argv;
-	if (argc != 2 || check_argv(argv[1]))
-		error("Error\n");
-	parsing(&game, argv[1]);
-	// executing(&game);
+	temp[i] = '\0';
+	return (temp);
 }
