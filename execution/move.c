@@ -6,27 +6,27 @@
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 20:13:52 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/26 21:23:36 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/26 23:02:31 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/executing.h"
 
-void	rotate_vectors(t_mlx *mlx, int direction)
+void	rotate_vectors(t_game *game, int direction)
 {
 	double	angle;
-	double	dir_x = mlx->game->player->dir_x;
-	double	dir_y = mlx->game->player->dir_y;
-	double	plane_x = mlx->game->player->plane_x;
-	double	plane_y = mlx->game->player->plane_y;
+	double	dir_x = game->player->dir_x;
+	double	dir_y = game->player->dir_y;
+	double	plane_x = game->player->plane_x;
+	double	plane_y = game->player->plane_y;
 
 	angle = ROTATION_SPEED * (M_1_PI / 180.0);
 	if (direction == LEFT)
 		angle = -angle;
-	mlx->game->player->dir_x = cos(angle) * dir_x - sin(angle) * dir_y;
-	mlx->game->player->dir_y = sin(angle) * dir_x + cos(angle) * dir_y;
-	mlx->game->player->plane_x = cos(angle) * plane_x - sin(angle) * plane_y;
-	mlx->game->player->plane_y = sin(angle) * plane_x + cos(angle) * plane_y;
+	game->player->dir_x = cos(angle) * dir_x - sin(angle) * dir_y;
+	game->player->dir_y = sin(angle) * dir_x + cos(angle) * dir_y;
+	game->player->plane_x = cos(angle) * plane_x - sin(angle) * plane_y;
+	game->player->plane_y = sin(angle) * plane_x + cos(angle) * plane_y;
 }
 
 // static void	move_player(t_mlx *mlx, double x_change, double y_change)

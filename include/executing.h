@@ -6,7 +6,7 @@
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:03:11 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/26 21:20:00 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/26 23:03:06 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,33 +45,33 @@
 # define KEY_D			2
 
 /* init */
-void	init_direction_vectors(t_mlx *mlx);
-void	init_raycast(t_mlx *mlx);
-void	init_side_dist(t_dda *dda, t_mlx *mlx, t_raycast *ray);
-void	init_dda(t_dda *dda, t_raycast *ray, t_mlx *mlx);
+void	init_direction_vectors(t_game *game);
+void	init_raycast(t_game *game);
+void	init_side_dist(t_dda *dda, t_game *game, t_raycast *ray);
+void	init_dda(t_dda *dda, t_raycast *ray, t_game *game);
 
 /* move */
-void		rotate_vectors(t_mlx *mlx, int direction);
+void		rotate_vectors(t_game *game, int direction);
 // static void	move_player(t_mlx *mlx, double x_change, double y_change);
 // static void	handle_movement(t_key *key, t_mlx *mlx);
 
 /* key */
-int	key_pressed(t_mlx *mlx);
+int	key_pressed(t_game *game);
 int	key_detector(int keycode, t_game *game);
 int	key_released(int keycode, t_game *game);
-int	update_frame(t_mlx *mlx);
+int	update_frame(t_game *game);
 int	destroy_win(int keycode, t_game *game);
 
 /* utils */
 double	ft_abs(double num);
-bool	check_wall(t_mlx *mlx, t_dda *dda);
+bool	check_wall(t_game *game, t_dda *dda);
 int		find_collision_wall_direction(t_raycast *ray, t_dda dda, int side);
 
 /* executing */
-t_dda	*apply_dda(t_mlx *mlx, t_raycast *ray, t_dda *dda);
-void	shoot_ray(t_mlx *mlx, t_raycast *ray, t_dda *dda);
-void	draw_vertical_line(t_mlx *mlx, t_raycast ray, int line, t_dda *dda);
-void	raycasting(t_mlx *mlx);
+t_dda	*apply_dda(t_game *game, t_raycast *ray, t_dda *dda);
+void	shoot_ray(t_game *game, t_raycast *ray, t_dda *dda);
+void	draw_vertical_line(t_game *game, t_raycast ray, int line, t_dda *dda);
+void	raycasting(t_game *game);
 void	executing(t_game *game);
 
 #endif

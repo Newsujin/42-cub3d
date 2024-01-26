@@ -6,7 +6,7 @@
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 21:09:35 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/26 21:19:06 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/26 22:50:58 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,12 @@ typedef struct s_player
 	double	plane_y;
 }	t_player;
 
+typedef struct s_mlx
+{
+	void		*init;
+	void		*win;
+}	t_mlx;
+
 typedef struct s_game
 {
 	char			*no;
@@ -107,6 +113,8 @@ typedef struct s_game
 	char			**map_2d;
 	/* player */
 	t_player		*player;
+	/* mlx */
+	t_mlx			*mlx;
 	/* img */
 	t_img			*img;
 	t_img			text[4];
@@ -118,12 +126,5 @@ typedef struct s_game
 	/* key hook */
 	t_key			key_flag;
 }	t_game;
-
-typedef struct s_mlx
-{
-	t_game		*game;
-	void		*init;
-	void		*win;
-}	t_mlx;
 
 #endif

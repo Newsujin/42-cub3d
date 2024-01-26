@@ -6,7 +6,7 @@
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:59:39 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/26 21:17:03 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/26 23:02:00 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,25 +63,25 @@ int	key_released(int keycode, t_game *game)
 	return (0);
 }
 
-int	update_frame(t_mlx *mlx)
+int	update_frame(t_game *game)
 {
 	t_key	key;
 
-	key = mlx->game->key_flag;
+	key = game->key_flag;
 	// handle_movement(&key, mlx);
 	if (key.rotate_left == 1)
-		rotate_vectors(mlx, LEFT);
+		rotate_vectors(game->mlx, LEFT);
 	if (key.rotate_right == 1)
-		rotate_vectors(mlx, RIGHT);
+		rotate_vectors(game->mlx, RIGHT);
 	// raycasting(mlx);
 	return (0);
 }
 
-int	key_pressed(t_mlx *mlx)
+int	key_pressed(t_game *game)
 {
-	mlx_hook(mlx->win, 2, 0, key_detector, mlx->game);
-	mlx_hook(mlx->win, 3, 0, key_released, mlx->game);
-	mlx_hook(mlx->win, 17, 0, destroy_win, mlx->game);
-	mlx_loop_hook(mlx->init, update_frame, mlx);
+	mlx_hook(game->mlx->win, 2, 0, key_detector, game);
+	mlx_hook(game->mlx->win, 3, 0, key_released, game);
+	mlx_hook(game->mlx->win, 17, 0, destroy_win, game);
+	mlx_loop_hook(game->mlx->init, update_frame, game->mlx);
 	return (0);
 }

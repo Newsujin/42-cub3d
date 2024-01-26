@@ -6,7 +6,7 @@
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:59:12 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/26 21:24:05 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/26 23:02:56 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ double	ft_abs(double num)
 	return (num);
 }
 
-bool	check_wall(t_mlx *mlx, t_dda *dda)
+bool	check_wall(t_game *game, t_dda *dda)
 {
 	bool	hit;
-	char	pixel = mlx->game->map_2d[dda->map_y][dda->map_x];
+	char	pixel = game->map_2d[dda->map_y][dda->map_x];
 
 	hit = false;
 	if (dda->map_x > -1 && dda->map_y > -1 && pixel == '1')

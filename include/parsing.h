@@ -6,7 +6,7 @@
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:50:07 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/26 21:30:51 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/26 23:04:48 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ int		ft_free_2d(char **str, int flag);
 char	*no_new_line(char *line);
 
 /* libft */
-int	ft_atoi(const char *str);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_atoi(const char *str);
+char	*ft_strcpy(const char *string);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif
