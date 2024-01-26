@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:36:08 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/17 19:46:26 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/24 15:28:59 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@
 
 # include "struct.h"
 # include "executing.h"
-// # include "parsing.h"
+# include "parsing.h"
 
+void	error(char *s);
 void	executing(t_data *data);
 
 #endif
