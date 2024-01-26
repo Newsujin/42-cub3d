@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 15:01:17 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/24 17:18:40 by yerilee          ###   ########.fr       */
+/*   Created: 2024/01/26 21:09:35 by spark2            #+#    #+#             */
+/*   Updated: 2024/01/26 21:19:06 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,35 +61,6 @@ typedef struct s_dda
 	int		wall_height;
 }	t_dda;
 
-typedef struct s_data
-{
-	char			*no;
-	char			*so;
-	char			*we;
-	char			*ea;
-	int				floor;
-	int				ceiling;
-	char			**map;
-	char			direction;
-	double			x;
-	double			y;
-	double			pos_x;
-	double			pos_y;
-	double			dir_x;
-	double			dir_y;
-	double			plane_x;
-	double			plane_y;
-	t_key			key_flag;
-}	t_data;
-
-typedef struct s_mlx
-{
-	t_data		*data;
-	void		*init;
-	void		*img;
-	void		*win;
-}	t_mlx;
-
 /* parsing */
 typedef struct s_color
 {
@@ -103,7 +74,7 @@ typedef struct s_color
 
 typedef struct s_img
 {
-	void	*img;
+	void	*init;
 	char	*path;
 	int		*data;
 	int		bpp;
@@ -113,6 +84,8 @@ typedef struct s_img
 
 typedef struct s_player
 {
+	double	x;
+	double	y;
 	double	pos_x;
 	double	pos_y;
 	double	dir_x;
@@ -123,18 +96,34 @@ typedef struct s_player
 
 typedef struct s_game
 {
-	t_player	*player;
-	t_img		*img;
-	t_img		text[4];
-	t_color		*color;
-	void		*mlx;
-	void		*win;
-	int			**buf;
-	char		*map;
-	char		**map_2d;
-	int			height;
-	int			player_cnt;
-	int			fd;
+	char			*no;
+	char			*so;
+	char			*we;
+	char			*ea;
+	char			direction; // ?
+	/* map */
+	int				fd;
+	char			*map;
+	char			**map_2d;
+	/* player */
+	t_player		*player;
+	/* img */
+	t_img			*img;
+	t_img			text[4];
+	t_color			*color;
+	int				**buf;
+	/* 정체불명 */
+	int				height;
+	int				player_cnt;
+	/* key hook */
+	t_key			key_flag;
 }	t_game;
+
+typedef struct s_mlx
+{
+	t_game		*game;
+	void		*init;
+	void		*win;
+}	t_mlx;
 
 #endif
