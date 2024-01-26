@@ -6,7 +6,7 @@
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:51:35 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/24 17:09:52 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/26 21:48:33 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_texture(t_game *game)
 	while (i < 4)
 	{
 		game->text[i].path = NULL;
-		game->text[i].img = NULL;
+		game->text[i].init = NULL;
 		game->text[i].data = NULL;
 		i++;
 	}

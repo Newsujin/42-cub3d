@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executing.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/24 17:25:48 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/26 21:22:07 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,26 +88,26 @@ void	raycasting(t_mlx *mlx)
 	while (i <= WIDTH)
 	{
 		camera = 2 * i / (double)WIDTH - 1;
-		ray.ray_dir_x = mlx->data->dir_x + mlx->data->plane_x * camera;
-		ray.ray_dir_y = mlx->data->dir_y + mlx->data->plane_y * camera;
+		ray.ray_dir_x = mlx->game->player->dir_x + mlx->game->player->plane_x * camera;
+		ray.ray_dir_y = mlx->game->player->dir_y + mlx->game->player->plane_y * camera;
 		shoot_ray(mlx, &ray, &dda);
 		draw_vertical_line(mlx, ray, i, &dda);
 		i++;
 	}
 }
 
-void	executing(t_data *data)
+void	executing(t_game *game)
 {
 	t_mlx	mlx;
 
 	mlx.init = mlx_init();
 	mlx.win = mlx_new_window(mlx.init, WIDTH, HEIGHT, "cub3D");
-	mlx.data = data;
+	mlx.game = game;
 	init_direction_vectors(&mlx);
 	init_raycast(&mlx);
-	mlx.img = mlx_new_image(mlx.init, WIDTH, HEIGHT);
+	game->img->init = mlx_new_image(mlx.init, WIDTH, HEIGHT);
 	// if (mlx.img == NULL) error 처리
-	mlx_image_to_window(mlx.init, mlx.img, 0, 0);
+	mlx_put_image_to_window(mlx.init, mlx.win, game->img->init, 0, 0);
 	// texture
 	// raycasting(&mlx);
 	key_pressed(&mlx);

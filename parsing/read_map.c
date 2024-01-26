@@ -6,7 +6,7 @@
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:11:35 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/26 20:57:42 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/26 21:54:02 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	check_dir_rgb(char *line, t_game *game, int *count)
 	// 	!(ft_strncmp(tmp[0], "EA", 2)))
 	// 	check_direction(line, game, count);
 	// data	구조체 내 변수로 초기화하기
-	else
-		error("invalid dir_rgb Error\n");
+	// else
+	// 	error("invalid dir_rgb Error\n");
 	ft_free_2d(tmp, 0);
 }
 
