@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/29 21:49:10 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/29 21:51:40 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ void	executing(t_game *game)
 	set_buf(game);
 	init_direction_vectors(game);
 	init_raycast(game);
-	// raycasting(&mlx);
+	raycasting(game);
 	draw_buffer(game);
 	key_pressed(game);
 	mlx_loop(game->mlx->init);
