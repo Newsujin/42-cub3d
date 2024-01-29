@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 21:09:35 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/29 20:20:26 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/29 20:32:37 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ typedef struct s_raycast
 	int		tex_x;
 	int		tex_y;
 	int		color;
+	int		start;
+	int		end;
 }	t_raycast;
 
 typedef struct s_dda
