@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/29 14:54:16 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/29 15:36:40 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,17 +98,8 @@ void	raycasting(t_game *game)
 
 void	executing(t_game *game)
 {
-	// t_mlx	mlx;
-
-	// mlx.init = mlx_init();
-	// mlx.win = mlx_new_window(mlx.init, WIDTH, HEIGHT, "cub3D");
-	// mlx.game = game;
 	init_direction_vectors(game);
 	init_raycast(game);
-	// game->img->init = mlx_new_image(game->mlx->init, WIDTH, HEIGHT);
-	// if (mlx.img == NULL) error 처리
-	// mlx_put_image_to_window(game->mlx.init, mlx.win, game->img->init, 0, 0);
-	// texture
 	// raycasting(&mlx);
 	key_pressed(game);
 	mlx_loop(game->mlx->init);
