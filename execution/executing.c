@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/29 15:36:40 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/29 15:38:36 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,28 @@ void	raycasting(t_game *game)
 	}
 }
 
+void	set_buf(t_game *game)
+{
+	int	wid;
+	int	hei;
+
+	wid = 0;
+	while (wid < WIDTH)
+	{
+		hei = 0;
+		while (hei < HEIGHT / 2)
+		{
+			game->buf[hei][wid] = game->color->c_color;
+			game->buf[HEIGHT - hei - 1][wid] = game->color->f_color;
+			hei++;
+		}
+		wid++;
+	}
+}
+
 void	executing(t_game *game)
 {
+	set_buf(game);
 	init_direction_vectors(game);
 	init_raycast(game);
 	// raycasting(&mlx);
