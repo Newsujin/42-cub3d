@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executing.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:03:11 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/26 23:03:06 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/29 21:44:21 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,8 @@ void	shoot_ray(t_game *game, t_raycast *ray, t_dda *dda);
 void	draw_vertical_line(t_game *game, t_raycast ray, int line, t_dda *dda);
 void	raycasting(t_game *game);
 void	executing(t_game *game);
+
+/* draw */
+void	draw_buffer(t_game *game);
 
 #endif

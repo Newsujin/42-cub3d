@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+         #
+#    By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 15:37:35 by yerilee           #+#    #+#              #
-#    Updated: 2024/01/26 23:05:38 by spark2           ###   ########.fr        #
+#    Updated: 2024/01/29 21:49:54 by yerilee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ MLX = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
 GNL = parsing/get_next_line/get_next_line.c parsing/get_next_line/get_next_line_utils.c
 
 SRCS = main.c \
-	execution/executing.c execution/init.c execution/key.c execution/move.c execution/utils.c \
+	execution/executing.c execution/init.c execution/key.c execution/move.c execution/utils.c execution/draw.c \
 	parsing/check.c parsing/ft_split.c parsing/init.c parsing/parsing.c parsing/read_map.c parsing/rgb.c \
 	parsing/utils.c parsing/get_direction.c \
 	libft/ft_atoi.c libft/ft_strcpy.c libft/ft_strncmp.c
