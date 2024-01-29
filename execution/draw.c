@@ -6,11 +6,30 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 20:44:07 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/29 21:44:03 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/29 21:52:46 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/executing.h"
+
+void	set_buffer(t_game *game)
+{
+	int	wid;
+	int	hei;
+
+	wid = 0;
+	while (wid < WIDTH)
+	{
+		hei = 0;
+		while (hei < HEIGHT / 2)
+		{
+			game->buf[hei][wid] = game->color->c_color;
+			game->buf[HEIGHT - hei - 1][wid] = game->color->f_color;
+			hei++;
+		}
+		wid++;
+	}
+}
 
 void	draw_buffer(t_game *game)
 {
