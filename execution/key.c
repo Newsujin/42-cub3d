@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:59:39 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/26 23:02:00 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/29 14:54:30 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ int	update_frame(t_game *game)
 	key = game->key_flag;
 	// handle_movement(&key, mlx);
 	if (key.rotate_left == 1)
-		rotate_vectors(game->mlx, LEFT);
+		rotate_vectors(game, LEFT);
 	if (key.rotate_right == 1)
-		rotate_vectors(game->mlx, RIGHT);
+		rotate_vectors(game, RIGHT);
 	// raycasting(mlx);
 	return (0);
 }

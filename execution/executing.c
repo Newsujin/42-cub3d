@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   executing.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/26 23:00:01 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/29 14:54:16 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_dda	*apply_dda(t_game *game, t_raycast *ray, t_dda *dda)
 {
 	bool	hit;
 
-	init_dda(dda, ray, game->mlx);
+	init_dda(dda, ray, game);
 	hit = false;
 	while (hit == false)
 	{
@@ -32,7 +32,7 @@ t_dda	*apply_dda(t_game *game, t_raycast *ray, t_dda *dda)
 			dda->map_y += dda->step_y;
 			dda->side = WALL_Y;
 		}
-		hit = check_wall(game->mlx, dda);
+		hit = check_wall(game, dda);
 	}
 	return (dda);
 }
