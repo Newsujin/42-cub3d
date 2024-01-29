@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/29 20:43:01 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/29 21:40:35 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	shoot_ray(t_game *game, t_raycast *ray, t_dda *dda)
 	ray->tex_direction = find_collision_wall_direction(ray, *dda, dda->side);
 }
 
-void	calculating_texture(t_game *game, int x, t_dda *dda, t_raycast *ray)
+void	calculating_texture_x(t_game *game, int x, t_dda *dda, t_raycast *ray)
 {
 	double	wall_x;
 
@@ -77,7 +77,7 @@ void	calculating_texture(t_game *game, int x, t_dda *dda, t_raycast *ray)
 		ray->tex_x = 64.0 - ray->tex_x - 1;
 }
 
-void	draw_vertical_line(t_game *game, t_raycast ray, int x, t_dda *dda)
+void	calculating_texture_y(t_game *game, int x, t_dda *dda, t_raycast ray)
 {
 	int	y;
 
@@ -111,8 +111,8 @@ void	raycasting(t_game *game)
 		ray.ray_dir_x = game->player->dir_x + game->player->plane_x * camera;
 		ray.ray_dir_y = game->player->dir_y + game->player->plane_y * camera;
 		shoot_ray(game, &ray, &dda);
-		calculating_texture(game, i, &dda, &ray);
-		draw_vertical_line(game, ray, i, &dda);
+		calculating_texture_x(game, i, &dda, &ray);
+		calculating_texture_y(game, i, &dda, ray);
 		i++;
 	}
 }
