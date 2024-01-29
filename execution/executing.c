@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/29 21:40:35 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/29 21:49:10 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_dda	*apply_dda(t_game *game, t_raycast *ray, t_dda *dda)
 	return (dda);
 }
 
-void	calculate_vertical_wall(t_game *game, t_raycast *ray, t_dda *dda)
+void	calculate_vertical_wall(t_raycast *ray, t_dda *dda)
 {
 	if (dda->side == WALL_X)
 		dda->perp_wall_dist = dda->side_dist_x - dda->delta_dist_x;
@@ -57,11 +57,11 @@ void	calculate_vertical_wall(t_game *game, t_raycast *ray, t_dda *dda)
 void	shoot_ray(t_game *game, t_raycast *ray, t_dda *dda)
 {
 	apply_dda(game, ray, dda);
-	calculate_vertical_wall(game, ray, dda);
+	calculate_vertical_wall(ray, dda);
 	ray->tex_direction = find_collision_wall_direction(ray, *dda, dda->side);
 }
 
-void	calculating_texture_x(t_game *game, int x, t_dda *dda, t_raycast *ray)
+void	calculating_texture_x(t_game *game, t_dda *dda, t_raycast *ray)
 {
 	double	wall_x;
 
@@ -111,7 +111,7 @@ void	raycasting(t_game *game)
 		ray.ray_dir_x = game->player->dir_x + game->player->plane_x * camera;
 		ray.ray_dir_y = game->player->dir_y + game->player->plane_y * camera;
 		shoot_ray(game, &ray, &dda);
-		calculating_texture_x(game, i, &dda, &ray);
+		calculating_texture_x(game, &dda, &ray);
 		calculating_texture_y(game, i, &dda, ray);
 		i++;
 	}
@@ -142,6 +142,7 @@ void	executing(t_game *game)
 	init_direction_vectors(game);
 	init_raycast(game);
 	// raycasting(&mlx);
+	draw_buffer(game);
 	key_pressed(game);
 	mlx_loop(game->mlx->init);
 	// exit;
