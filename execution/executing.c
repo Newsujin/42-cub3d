@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/29 19:54:01 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/29 20:11:24 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,25 @@ void	shoot_ray(t_game *game, t_raycast *ray, t_dda *dda)
 	find_collision_wall_direction(ray, *dda, dda->side);
 }
 
+void	calculating_texture(t_game *game, int x, t_dda *dda, t_raycast *ray)
+{
+	double	wall_x;
+
+	if (dda->side == WALL_X)
+		wall_x = game->player->pos_y + dda->perp_wall_dist * ray->ray_dir_y;
+	else
+		wall_x = game->player->pos_x + dda->perp_wall_dist * ray->ray_dir_x;
+	wall_x -= floor(wall_x);
+	ray->tex_x = (int)(wall_x * 64.0);
+	if (dda->side == WALL_X && ray->ray_dir_x > 0)
+		ray->tex_x = 64.0 - ray->tex_x - 1;
+	if (dda->side == WALL_Y && ray->ray_dir_y < 0)
+		ray->tex_x = 64.0 - ray->tex_x - 1;
+	ray->step = 1.0 * 64 / (double)dda->wall_height;
+	ray->tex_pos = (ray->start - (double)HEIGHT / 2
+			+ (double)dda->wall_height / 2) * ray->step;
+}
+
 void	draw_vertical_line(t_game *game, t_raycast ray, int line, t_dda *dda)
 {
 	int	y;
@@ -96,6 +115,7 @@ void	raycasting(t_game *game)
 		ray.ray_dir_x = game->player->dir_x + game->player->plane_x * camera;
 		ray.ray_dir_y = game->player->dir_y + game->player->plane_y * camera;
 		shoot_ray(game, &ray, &dda);
+		calculating_texture(game, i, &dda, &ray);
 		draw_vertical_line(game, ray, i, &dda);
 		i++;
 	}
