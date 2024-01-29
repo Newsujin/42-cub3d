@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 21:09:35 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/26 22:50:58 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/29 20:20:26 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,10 @@ typedef struct s_raycast
 	double	ray_dir_y;
 	double	tex_pos;
 	double	step;
+	int		tex_num;
 	int		tex_x;
-	int		start;
-	int		end;
+	int		tex_y;
+	int		color;
 }	t_raycast;
 
 typedef struct s_dda
