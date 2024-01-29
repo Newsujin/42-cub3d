@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/29 20:35:32 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/29 20:43:01 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,28 +75,24 @@ void	calculating_texture(t_game *game, int x, t_dda *dda, t_raycast *ray)
 		ray->tex_x = 64.0 - ray->tex_x - 1;
 	if (dda->side == WALL_Y && ray->ray_dir_y < 0)
 		ray->tex_x = 64.0 - ray->tex_x - 1;
-	ray->step = 1.0 * 64 / (double)dda->wall_height;
-	ray->tex_pos = (ray->start - (double)HEIGHT / 2
-			+ (double)dda->wall_height / 2) * ray->step;
 }
 
-void	draw_vertical_line(t_game *game, t_raycast ray, int line, t_dda *dda)
+void	draw_vertical_line(t_game *game, t_raycast ray, int x, t_dda *dda)
 {
 	int	y;
 
-	y = 0;
-	(void) game;
-	(void) ray;
-	(void) line;
-	(void) dda;
-	while (y < HEIGHT)
+	ray.step = 1.0 * 64 / (double)dda->wall_height;
+	ray.tex_pos = (ray.start - (double)HEIGHT / 2
+			+ (double)dda->wall_height / 2) * ray.step;
+	y = ray.start;
+	while (y < ray.end)
 	{
-		// if (y < ray.start && y < 이미지 높이 && x < 이미지 너비)
-		// 	배경
-		// else if (y >= ray.start && y <= ray.end && y < 이미지 높이 && x < 이미지 너비)
-		// 	스프라이트
-		// else if (y > ray.end && y < 이미지 높이 && x x < 이미지 너비)
-		// 배경
+		ray.tex_y = (int)ray.tex_pos & 63;
+		ray.tex_pos += ray.step;
+		ray.color = game->text[ray.tex_direction].data[64 * ray.tex_y + ray.tex_x];
+		if (dda->side == WALL_Y)
+			ray.color = (ray.color >> 1) & 8355711;
+		game->buf[y][x] = ray.color;
 		y++;
 	}
 }
