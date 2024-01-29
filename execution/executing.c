@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/29 15:38:36 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/29 19:54:01 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,8 @@ t_dda	*apply_dda(t_game *game, t_raycast *ray, t_dda *dda)
 	return (dda);
 }
 
-void	shoot_ray(t_game *game, t_raycast *ray, t_dda *dda)
+void	calculate_vertical_wall(t_game *game, t_raycast *ray, t_dda *dda)
 {
-	apply_dda(game, ray, dda);
 	if (dda->side == WALL_X)
 		dda->perp_wall_dist = dda->side_dist_x - dda->delta_dist_x;
 	else
@@ -53,6 +52,12 @@ void	shoot_ray(t_game *game, t_raycast *ray, t_dda *dda)
 	ray->end = dda->wall_height / 2 + HEIGHT / 2;
 	if (ray->end >= HEIGHT)
 		ray->end = HEIGHT - 1;
+}
+
+void	shoot_ray(t_game *game, t_raycast *ray, t_dda *dda)
+{
+	apply_dda(game, ray, dda);
+	calculate_vertical_wall(game, ray, dda);
 	find_collision_wall_direction(ray, *dda, dda->side);
 }
 
