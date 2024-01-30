@@ -6,17 +6,16 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/29 21:52:53 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/30 21:39:39 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/executing.h"
 
-t_dda	*apply_dda(t_game *game, t_raycast *ray, t_dda *dda)
+t_dda	*apply_dda(t_game *game, t_dda *dda)
 {
 	bool	hit;
 
-	init_dda(dda, ray, game);
 	hit = false;
 	while (hit == false)
 	{
@@ -37,7 +36,7 @@ t_dda	*apply_dda(t_game *game, t_raycast *ray, t_dda *dda)
 	return (dda);
 }
 
-void	calculate_vertical_wall(t_raycast *ray, t_dda *dda)
+void	calculating_vertical_wall(t_raycast *ray, t_dda *dda)
 {
 	if (dda->side == WALL_X)
 		dda->perp_wall_dist = dda->side_dist_x - dda->delta_dist_x;
@@ -54,11 +53,12 @@ void	calculate_vertical_wall(t_raycast *ray, t_dda *dda)
 		ray->end = HEIGHT - 1;
 }
 
-void	shoot_ray(t_game *game, t_raycast *ray, t_dda *dda)
+void	shoot_ray(t_game *game, t_dda *dda, t_raycast *ray, int i)
 {
-	apply_dda(game, ray, dda);
-	calculate_vertical_wall(ray, dda);
-	ray->tex_direction = find_collision_wall_direction(ray, *dda, dda->side);
+	init_dda(game, dda, ray, i);
+	apply_dda(game, dda);
+	calculating_vertical_wall(ray, dda);
+	find_collision_wall_direction(ray, *dda, dda->side);
 }
 
 void	calculating_texture_x(t_game *game, t_dda *dda, t_raycast *ray)
@@ -77,7 +77,7 @@ void	calculating_texture_x(t_game *game, t_dda *dda, t_raycast *ray)
 		ray->tex_x = 64.0 - ray->tex_x - 1;
 }
 
-void	calculating_texture_y(t_game *game, int x, t_dda *dda, t_raycast ray)
+void	calculating_texture_y(t_game *game, t_dda *dda, t_raycast ray, int x)
 {
 	int	y;
 
@@ -101,18 +101,14 @@ void	raycasting(t_game *game)
 {
 	t_dda		dda;
 	t_raycast	ray;
-	double		camera;
 	int			i;
 
 	i = 0;
 	while (i <= WIDTH)
 	{
-		camera = 2 * i / (double)WIDTH - 1;
-		ray.ray_dir_x = game->player->dir_x + game->player->plane_x * camera;
-		ray.ray_dir_y = game->player->dir_y + game->player->plane_y * camera;
-		shoot_ray(game, &ray, &dda);
+		shoot_ray(game, &dda, &ray, i);
 		calculating_texture_x(game, &dda, &ray);
-		calculating_texture_y(game, i, &dda, ray);
+		calculating_texture_y(game, &dda, ray, i);
 		i++;
 	}
 }

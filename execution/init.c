@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:59:33 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/26 23:01:16 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/30 20:48:25 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,13 @@ void	init_side_dist(t_dda *dda, t_game *game, t_raycast *ray)
 			* dda->delta_dist_y;
 }
 
-void	init_dda(t_dda *dda, t_raycast *ray, t_game *game)
+void	init_dda(t_game *game, t_dda *dda, t_raycast *ray, int i)
 {
+	double camera;
+
+	camera = 2 * i / (double)WIDTH - 1;
+	ray->ray_dir_x = game->player->dir_x + game->player->plane_x * camera;
+	ray->ray_dir_y = game->player->dir_y + game->player->plane_y * camera;
 	dda->map_x = (int)(game->player->pos_x);
 	dda->map_y = (int)(game->player->pos_y);
 	if (ray->ray_dir_x == 0)
