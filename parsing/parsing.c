@@ -6,7 +6,7 @@
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:02:17 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/26 21:32:08 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/30 23:28:12 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,12 @@ void	parsing(t_game *game, char *argv)
 	read_map(game);
 	if (game->map == (void *)0)
 		error("Error\nmap\n");
+	check_map2(game);
+	check_overlap(game);
+	init_player(game);
+	init_rgb(game);
+	init_buf(game);
+	game->img->init = mlx_new_image(game->mlx,  WIDTH, HEIGHT);
+	game->img->data = (int *)mlx_get_data_addr(game->img->init, \
+	&(game->img->bpp), &(game->img->size_l), &(game->img->endian));
 }
