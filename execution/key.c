@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:59:39 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/29 14:54:30 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/30 21:44:04 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,12 @@ int	update_frame(t_game *game)
 	t_key	key;
 
 	key = game->key_flag;
-	// handle_movement(&key, mlx);
+	handle_movement(&key, game);
 	if (key.rotate_left == 1)
 		rotate_vectors(game, LEFT);
 	if (key.rotate_right == 1)
 		rotate_vectors(game, RIGHT);
-	// raycasting(mlx);
+	raycasting(game);
 	return (0);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 20:13:52 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/26 23:02:31 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/30 21:48:55 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,34 +29,34 @@ void	rotate_vectors(t_game *game, int direction)
 	game->player->plane_y = sin(angle) * plane_x + cos(angle) * plane_y;
 }
 
-// static void	move_player(t_mlx *mlx, double x_change, double y_change)
-// {
-// 	char	**map;
+void	move_player(t_game *game, double x_change, double y_change)
+{
+	char	**map;
 
-// 	map = mlx->game->map;
-// 	if (map[(int)mlx->game->pos_y][(int)(mlx->game->pos_x + x_change)] == 0)
-// 		mlx->game->pos_x += x_change;
-// 	if (map[(int)(mlx->game->pos_y + y_change)][(int)mlx->game->pos_x] == 0)
-// 		mlx->game->pos_y += y_change;
-// }
+	map = game->map_2d;
+	if (map[(int)game->player->pos_y][(int)(game->player->pos_x + x_change)] == 0)
+		game->player->pos_x += x_change;
+	if (map[(int)(game->player->pos_y + y_change)][(int)game->player->pos_x] == 0)
+		game->player->pos_y += y_change;
+}
 
-// static void	handle_movement(t_key *key, t_mlx *mlx)
-// {
-// 	double	tmp_dir_x;
-// 	double	tmp_dir_y;
-// 	double	tmp_plane_x;
-// 	double	tmp_plane_y;
+void	handle_movement(t_key *key, t_game *game)
+{
+	double	tmp_dir_x;
+	double	tmp_dir_y;
+	double	tmp_plane_x;
+	double	tmp_plane_y;
 
-// 	tmp_dir_x = mlx->game->dir_x * MOVE_SPEED;
-// 	tmp_dir_y = mlx->game->dir_y * MOVE_SPEED;
-// 	tmp_plane_x = mlx->game->plane_x * MOVE_SPEED;
-// 	tmp_plane_y = mlx->game->plane_y * MOVE_SPEED;
-// 	if (key->move_forward == 1)
-// 		move_player(mlx, tmp_dir_x, tmp_dir_y);
-// 	if (key->move_backward == 1)
-// 		move_player(mlx, -tmp_dir_x, -tmp_dir_y);
-// 	if (key->move_right == 1)
-// 		move_player(mlx, tmp_plane_x, tmp_plane_y);
-// 	if (key->move_left == 1)
-// 		move_player(mlx, tmp_plane_x, -tmp_plane_y);
-// }
+	tmp_dir_x = game->player->dir_x * MOVE_SPEED;
+	tmp_dir_y = game->player->dir_y * MOVE_SPEED;
+	tmp_plane_x = game->player->plane_x * MOVE_SPEED;
+	tmp_plane_y = game->player->plane_y * MOVE_SPEED;
+	if (key->move_forward == 1)
+		move_player(game, tmp_dir_x, tmp_dir_y);
+	if (key->move_backward == 1)
+		move_player(game, -tmp_dir_x, -tmp_dir_y);
+	if (key->move_right == 1)
+		move_player(game, tmp_plane_x, tmp_plane_y);
+	if (key->move_left == 1)
+		move_player(game, tmp_plane_x, -tmp_plane_y);
+}
