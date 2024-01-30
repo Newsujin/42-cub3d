@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 21:09:35 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/29 20:35:27 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/30 21:41:05 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 # include <stdbool.h>
 # include "../mlx/mlx.h"
 
-enum e_direction
+typedef enum e_direction
 {
 	NORTH,
 	SOUTH,
 	EAST,
 	WEST
-};
+}	t_direction;
 
 typedef struct s_key
 {
