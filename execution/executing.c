@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/30 20:50:30 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/30 20:53:27 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	shoot_ray(t_game *game, t_dda *dda, t_raycast *ray, int i)
 	init_dda(game, dda, ray, i);
 	apply_dda(game, dda);
 	calculating_vertical_wall(ray, dda);
-	ray->tex_direction = find_collision_wall_direction(ray, *dda, dda->side);
+	find_collision_wall_direction(ray, *dda, dda->side);
 }
 
 void	calculating_texture_x(t_game *game, t_dda *dda, t_raycast *ray)
