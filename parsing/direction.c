@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_direction.c                                    :+:      :+:    :+:   */
+/*   direction.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 22:13:40 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/26 23:06:27 by spark2           ###   ########.fr       */
+/*   Created: 2024/01/30 20:09:53 by spark2            #+#    #+#             */
+/*   Updated: 2024/01/30 22:47:50 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/parsing.h"
 
-static void	put_mlx_img(t_game *game, char *path, t_img *img)
+void	put_mlx_img(t_game *game, char *path, t_img *img)
 {
 	int	wid;
 	int	hei;
 
 	img->init = NULL;
-	img->init = mlx_xpm_file_to_image(game->mlx, path, &wid, &hei);
+	img->init = mlx_xpm_file_to_image(game->mlx->init, path, &wid, &hei);
 	if (!img->init)
 		error("Error\nput_mlx_img\n");
 	img->data = (int *)mlx_get_data_addr(img->init, &(img->bpp), \
@@ -27,7 +27,7 @@ static void	put_mlx_img(t_game *game, char *path, t_img *img)
 		error("Error\nput_mlx_img\n");
 }
 
-static void	put_img(int *count, t_game *game, char *temp, int flag)
+void	put_img(int *count, t_game *game, char *temp, int flag)
 {
 	char	*copy;
 
@@ -55,7 +55,7 @@ static void	put_img(int *count, t_game *game, char *temp, int flag)
 	(*count)++;
 }
 
-static void	check_extension(char *file)
+void	check_extension(char *file)
 {
 	int	length;
 
