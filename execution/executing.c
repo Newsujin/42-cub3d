@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/30 20:53:27 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/30 21:39:39 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	calculating_texture_x(t_game *game, t_dda *dda, t_raycast *ray)
 		ray->tex_x = 64.0 - ray->tex_x - 1;
 }
 
-void	calculating_texture_y(t_game *game, int x, t_dda *dda, t_raycast ray)
+void	calculating_texture_y(t_game *game, t_dda *dda, t_raycast ray, int x)
 {
 	int	y;
 
@@ -108,7 +108,7 @@ void	raycasting(t_game *game)
 	{
 		shoot_ray(game, &dda, &ray, i);
 		calculating_texture_x(game, &dda, &ray);
-		calculating_texture_y(game, i, &dda, ray);
+		calculating_texture_y(game, &dda, ray, i);
 		i++;
 	}
 }
