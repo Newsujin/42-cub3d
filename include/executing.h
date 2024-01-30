@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:03:11 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/29 21:53:06 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/30 20:49:20 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@
 void	init_direction_vectors(t_game *game);
 void	init_raycast(t_game *game);
 void	init_side_dist(t_dda *dda, t_game *game, t_raycast *ray);
-void	init_dda(t_dda *dda, t_raycast *ray, t_game *game);
+void	init_dda(t_game *game, t_dda *dda, t_raycast *ray, int i);
 
 /* move */
 void		rotate_vectors(t_game *game, int direction);
@@ -68,8 +68,8 @@ bool	check_wall(t_game *game, t_dda *dda);
 int		find_collision_wall_direction(t_raycast *ray, t_dda dda, int side);
 
 /* executing */
-t_dda	*apply_dda(t_game *game, t_raycast *ray, t_dda *dda);
-void	shoot_ray(t_game *game, t_raycast *ray, t_dda *dda);
+t_dda	*apply_dda(t_game *game, t_dda *dda);
+void	shoot_ray(t_game *game, t_dda *dda, t_raycast *ray, int i);
 void	draw_vertical_line(t_game *game, t_raycast ray, int line, t_dda *dda);
 void	raycasting(t_game *game);
 void	executing(t_game *game);
