@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:59:12 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/30 20:53:55 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 16:31:37 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ double	ft_abs(double num)
 bool	check_wall(t_game *game, t_dda *dda)
 {
 	bool	hit;
-	char	pixel = game->map_2d[dda->map_y][dda->map_x];
+	char	pixel = game->map_2d[dda->map_x][dda->map_y];
 
 	hit = false;
 	if (dda->map_x > -1 && dda->map_y > -1 && pixel == '1')
