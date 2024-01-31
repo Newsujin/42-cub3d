@@ -6,22 +6,15 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:59:39 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/30 21:44:04 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 16:28:19 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/executing.h"
 
-int	destroy_win(int keycode, t_game *game)
+int	destroy_win(t_game *game)
 {
-	int	i;
-
-	i = -1;
-	(void)keycode;
-	(void)game;
-	// ft_free_split
-	// while (++i <= 3)
-	// 	mlx_destroy_image
+	mlx_destroy_window(game->mlx, game->win);
 	exit(0);
 }
 
@@ -40,7 +33,7 @@ int	key_detector(int keycode, t_game *game)
 	if (keycode == KEY_RIGHT)
 		game->key_flag.rotate_right = 1;
 	if (keycode == KEY_ESC)
-		destroy_win(53, game);
+		destroy_win(game);
 	return (0);
 }
 
@@ -59,7 +52,7 @@ int	key_released(int keycode, t_game *game)
 	if (keycode == KEY_RIGHT)
 		game->key_flag.rotate_right = 0;
 	if (keycode == KEY_ESC)
-		destroy_win(53, game);
+		destroy_win(game);
 	return (0);
 }
 
@@ -79,9 +72,9 @@ int	update_frame(t_game *game)
 
 int	key_pressed(t_game *game)
 {
-	mlx_hook(game->mlx->win, 2, 0, key_detector, game);
-	mlx_hook(game->mlx->win, 3, 0, key_released, game);
-	mlx_hook(game->mlx->win, 17, 0, destroy_win, game);
-	mlx_loop_hook(game->mlx->init, update_frame, game->mlx);
+	mlx_hook(game->win, 2, 0, key_detector, game);
+	mlx_hook(game->win, 3, 0, key_released, game);
+	mlx_hook(game->win, 17, 0, destroy_win, game);
+	mlx_loop_hook(game->mlx, update_frame, game->mlx);
 	return (0);
 }
