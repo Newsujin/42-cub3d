@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:59:39 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 22:00:03 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 22:54:57 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 int	destroy_win(t_game *game)
 {
+	free(game->color);
+	free(game->player);
+	free(game->img);
 	mlx_destroy_window(game->mlx, game->win);
 	exit(0);
 }
