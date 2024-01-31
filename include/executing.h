@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:03:11 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 21:32:59 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 21:34:13 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@
 # define MOVE_SPEED 0.1
 # define LEFT 1
 # define RIGHT 2
-# define POS_X 1
-# define POS_Y -1
 # define WALL_X 0
 # define WALL_Y 1
 
