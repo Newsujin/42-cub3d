@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:59:39 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 21:25:51 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 21:56:50 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ int	update_frame(int keycode, t_game *game)
 	else if (keycode == KEY_A)
 		move_player(game, -tmp_plane_x, -tmp_plane_y);
 	else if (keycode == KEY_LEFT)
-		rotate_vectors(game, LEFT);
+		rotate_player(game, LEFT);
 	else if (keycode == KEY_RIGHT)
-		rotate_vectors(game, RIGHT);
+		rotate_player(game, RIGHT);
 	else
 		return (0);
 	executing(game);

@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:03:11 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 21:52:01 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 21:56:18 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ void	raycasting(t_game *game);
 void	executing(t_game *game);
 
 /* key */
-int	destroy_win(t_game *game);
-int	update_frame(int keycode, t_game *game);
-int	key_detector(t_game *game);
+int	    destroy_win(t_game *game);
+int	    update_frame(int keycode, t_game *game);
+int	    key_detector(t_game *game);
 
 /* move */
-void	rotate_vectors(t_game *game, int direction);
+void	rotate_player(t_game *game, int direction);
 void	move_player(t_game *game, double x_change, double y_change);
 
 /* utils */

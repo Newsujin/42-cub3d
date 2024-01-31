@@ -6,13 +6,13 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 20:13:52 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 21:22:37 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 21:55:59 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/executing.h"
 
-void	rotate_vectors(t_game *game, int direction)
+void	rotate_player(t_game *game, int direction)
 {
 	double	angle;
 	double	dir_x = game->player->dir_x;
