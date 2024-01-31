@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   direction.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 20:09:53 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/30 22:47:50 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/31 16:40:20 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	put_mlx_img(t_game *game, char *path, t_img *img)
 	int	hei;
 
 	img->init = NULL;
-	img->init = mlx_xpm_file_to_image(game->mlx->init, path, &wid, &hei);
+	img->init = mlx_xpm_file_to_image(game->mlx, path, &wid, &hei);
 	if (!img->init)
 		error("Error\nput_mlx_img\n");
 	img->data = (int *)mlx_get_data_addr(img->init, &(img->bpp), \

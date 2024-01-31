@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 20:44:07 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/29 21:52:46 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 16:26:38 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ void	draw_buffer(t_game *game)
 		}
 		y++;
 	}
-	mlx_put_image_to_window(game->mlx, game->mlx->win, game->img->init, 0, 0);
+	mlx_put_image_to_window(game->mlx, game->win, game->img->init, 0, 0);
 }

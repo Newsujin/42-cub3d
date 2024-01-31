@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:51:35 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/30 22:58:23 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/31 16:19:59 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,6 @@ void	init_texture(t_game *game)
 		game->text[i].data = NULL;
 		i++;
 	}
-}
-
-void	init_mlx(t_game *game)
-{
-	t_mlx	mlx;
-
-	mlx.init = mlx_init();
-	if (game->mlx->init == (void *)0)
-		error("Error\nmlx\n");
-	mlx.win = mlx_new_window(mlx.init, WIDTH, HEIGHT, "cub3D");
-	game->mlx = &mlx;
 }
 
 void	init_rgb(t_game *game)
@@ -138,7 +127,6 @@ void	init_game(t_game *game, char *file)
 		game->img == (void *)0)
 		error("malloc Error\n");
 	init_texture(game);
-	init_mlx(game);
 	game->color->ceil_flag = 0;
 	game->color->floor_flag = 0;
 }

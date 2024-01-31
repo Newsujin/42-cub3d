@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 21:09:35 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/30 21:36:44 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 15:53:27 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ typedef struct s_img
 
 typedef struct s_player
 {
-	double	x;
-	double	y;
+	// double	x;
+	// double	y;
 	double	pos_x;
 	double	pos_y;
 	double	dir_x;
@@ -97,35 +97,29 @@ typedef struct s_player
 	double	plane_y;
 }	t_player;
 
-typedef struct s_mlx
-{
-	void		*init;
-	void		*win;
-}	t_mlx;
-
 typedef struct s_game
 {
-	char			*no;
-	char			*so;
-	char			*we;
-	char			*ea;
-	char			direction; // ?
+	// char			*no;
+	// char			*so;
+	// char			*we;
+	// char			*ea;
+	// char			direction; // ?
 	/* map */
 	int				fd;
 	char			*map;
 	char			**map_2d;
 	/* player */
 	t_player		*player;
+	int				player_cnt;
 	/* mlx */
-	t_mlx			*mlx;
+	void			*mlx;
+	void			*win;
 	/* img */
 	t_img			*img;
 	t_img			text[4];
 	t_color			*color;
 	int				**buf;
-	/* 정체불명 */
 	int				height;
-	int				player_cnt;
 	/* key hook */
 	t_key			key_flag;
 }	t_game;
