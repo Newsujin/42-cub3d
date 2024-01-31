@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:59:39 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 21:56:50 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 22:00:03 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,6 @@ int	update_frame(int keycode, t_game *game)
 		rotate_player(game, LEFT);
 	else if (keycode == KEY_RIGHT)
 		rotate_player(game, RIGHT);
-	else
-		return (0);
-	executing(game);
 	return (0);
 }
 
