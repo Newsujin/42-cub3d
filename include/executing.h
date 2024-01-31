@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:03:11 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 21:34:13 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 21:52:01 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,33 +42,36 @@
 # define KEY_S			1
 # define KEY_D			2
 
-/* init */
+/* dda */
 void	init_side_dist(t_dda *dda, t_game *game, t_raycast *ray);
 void	init_dda(t_game *game, t_dda *dda, t_raycast *ray, int i);
+t_dda	*apply_dda(t_game *game, t_dda *dda);
+
+/* draw */
+void	set_buffer(t_game *game);
+void	draw_buffer(t_game *game);
+void	calculating_drawing_size(t_dda *dda, t_raycast *ray);
+void	calculating_texture_x(t_game *game, t_dda *dda, t_raycast *ray);
+void	calculating_texture_y(t_game *game, t_dda *dda, t_raycast ray, int x);
+
+/* executing */
+void	shoot_ray(t_game *game, t_dda *dda, t_raycast *ray, int i);
+void	raycasting(t_game *game);
+void	executing(t_game *game);
+
+/* key */
+int	destroy_win(t_game *game);
+int	update_frame(int keycode, t_game *game);
+int	key_detector(t_game *game);
 
 /* move */
 void	rotate_vectors(t_game *game, int direction);
 void	move_player(t_game *game, double x_change, double y_change);
-
-/* key */
-int	key_detector(t_game *game);
-int	update_frame(int keycode, t_game *game);
-int	destroy_win(t_game *game);
 
 /* utils */
 double	ft_abs(double num);
 bool	check_wall(t_game *game, t_dda *dda);
 void	find_collision_wall_direction(t_raycast *ray, t_dda dda, int side);
 
-/* executing */
-t_dda	*apply_dda(t_game *game, t_dda *dda);
-void	shoot_ray(t_game *game, t_dda *dda, t_raycast *ray, int i);
-void	draw_vertical_line(t_game *game, t_raycast ray, int line, t_dda *dda);
-void	raycasting(t_game *game);
-void	executing(t_game *game);
-
-/* draw */
-void	set_buffer(t_game *game);
-void	draw_buffer(t_game *game);
 
 #endif
