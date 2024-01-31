@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:03:11 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/30 21:48:33 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 16:27:13 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@
 # define KEY_D			2
 
 /* init */
-void	init_direction_vectors(t_game *game);
-void	init_raycast(t_game *game);
+// void	init_direction_vectors(t_game *game);
+// void	init_raycast(t_game *game);
 void	init_side_dist(t_dda *dda, t_game *game, t_raycast *ray);
 void	init_dda(t_game *game, t_dda *dda, t_raycast *ray, int i);
 
@@ -60,7 +60,7 @@ int	key_pressed(t_game *game);
 int	key_detector(int keycode, t_game *game);
 int	key_released(int keycode, t_game *game);
 int	update_frame(t_game *game);
-int	destroy_win(int keycode, t_game *game);
+int	destroy_win(t_game *game);
 
 /* utils */
 double	ft_abs(double num);
