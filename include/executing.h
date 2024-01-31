@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:03:11 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 21:14:26 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 21:31:04 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@
 # define KEY_D			2
 
 /* init */
-// void	init_direction_vectors(t_game *game);
-// void	init_raycast(t_game *game);
 void	init_side_dist(t_dda *dda, t_game *game, t_raycast *ray);
 void	init_dda(t_game *game, t_dda *dda, t_raycast *ray, int i);
 
