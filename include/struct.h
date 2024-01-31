@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 21:09:35 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/31 15:53:27 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 21:28:42 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,6 @@ typedef enum e_direction
 	EAST,
 	WEST
 }	t_direction;
-
-typedef struct s_key
-{
-	int	move_right;
-	int	move_left;
-	int	move_backward;
-	int	move_forward;
-	int	rotate_left;
-	int	rotate_right;
-}	t_key;
 
 typedef struct s_raycast
 {
@@ -64,7 +54,6 @@ typedef struct s_dda
 	int		wall_height;
 }	t_dda;
 
-/* parsing */
 typedef struct s_color
 {
 	int				ceil[3];
@@ -87,8 +76,6 @@ typedef struct s_img
 
 typedef struct s_player
 {
-	// double	x;
-	// double	y;
 	double	pos_x;
 	double	pos_y;
 	double	dir_x;
@@ -99,11 +86,6 @@ typedef struct s_player
 
 typedef struct s_game
 {
-	// char			*no;
-	// char			*so;
-	// char			*we;
-	// char			*ea;
-	// char			direction; // ?
 	/* map */
 	int				fd;
 	char			*map;
@@ -120,8 +102,6 @@ typedef struct s_game
 	t_color			*color;
 	int				**buf;
 	int				height;
-	/* key hook */
-	t_key			key_flag;
 }	t_game;
 
 #endif
