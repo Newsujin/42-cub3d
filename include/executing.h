@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:03:11 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 21:56:18 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 22:07:44 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@
 
 # define KEY_ESC 53
 # define KEY_PRESS 2
-# define KEY_RELEASE 3
 # define KEY_EXIT 17
 
 # define KEY_LEFT		123
