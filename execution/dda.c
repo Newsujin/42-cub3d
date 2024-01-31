@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   dda.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 19:59:33 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 21:30:22 by yerilee          ###   ########.fr       */
+/*   Created: 2024/01/31 21:47:56 by yerilee           #+#    #+#             */
+/*   Updated: 2024/01/31 21:47:57 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,28 @@ void	init_dda(t_game *game, t_dda *dda, t_raycast *ray, int i)
 	dda->step_x = 1;
 	dda->step_y = 1;
 	init_side_dist(dda, game, ray);
+}
+
+t_dda	*apply_dda(t_game *game, t_dda *dda)
+{
+	bool	hit;
+
+	hit = false;
+	while (hit == false)
+	{
+		if (dda->side_dist_x < dda->side_dist_y)
+		{
+			dda->side_dist_x += dda->delta_dist_x;
+			dda->map_x += dda->step_x;
+			dda->side = WALL_X;
+		}
+		else
+		{
+			dda->side_dist_y += dda->delta_dist_y;
+			dda->map_y += dda->step_y;
+			dda->side = WALL_Y;
+		}
+		hit = check_wall(game, dda);
+	}
+	return (dda);
 }
