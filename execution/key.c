@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:59:39 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 16:28:19 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 16:46:54 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,6 @@ int	key_pressed(t_game *game)
 	mlx_hook(game->win, 2, 0, key_detector, game);
 	mlx_hook(game->win, 3, 0, key_released, game);
 	mlx_hook(game->win, 17, 0, destroy_win, game);
-	mlx_loop_hook(game->mlx, update_frame, game->mlx);
+	// mlx_loop_hook(game->mlx, update_frame, game->mlx);
 	return (0);
 }

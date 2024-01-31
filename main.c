@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:37:09 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/26 21:31:57 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/31 16:46:39 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ int	main(int argc, char **argv)
 	if (argc != 2 || check_argv(argv[1]))
 		error("Error\n");
 	parsing(&game, argv[1]);
-	// executing(&game);
+	executing(&game);
 }
