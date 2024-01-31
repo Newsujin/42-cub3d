@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:11:35 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/30 22:41:09 by spark2           ###   ########.fr       */
+/*   Updated: 2024/01/31 16:44:51 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,5 @@ void	read_map(t_game *game)
 	}
 	close(game->fd);
 	game->map = map_buf;
-	// printf("%s\n", game->map);
 	free(line);
-	// printf("fuck\n");
 }
