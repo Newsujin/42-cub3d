@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 16:32:48 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 21:06:21 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ void	executing(t_game *game)
 	// init_raycast(game);
 	raycasting(game);
 	draw_buffer(game);
-	key_pressed(game);
+	key_detector(game);
 	mlx_loop(game->mlx);
 	// exit;
 }

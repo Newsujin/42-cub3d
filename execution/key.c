@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:59:39 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 16:46:54 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 21:25:51 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,63 +18,40 @@ int	destroy_win(t_game *game)
 	exit(0);
 }
 
-int	key_detector(int keycode, t_game *game)
+int	update_frame(int keycode, t_game *game)
 {
-	if (keycode == KEY_W)
-		game->key_flag.move_forward = 1;
-	if (keycode == KEY_S)
-		game->key_flag.move_backward = 1;
-	if (keycode == KEY_D)
-		game->key_flag.move_right = 1;
-	if (keycode == KEY_A)
-		game->key_flag.move_left = 1;
-	if (keycode == KEY_LEFT)
-		game->key_flag.rotate_left = 1;
-	if (keycode == KEY_RIGHT)
-		game->key_flag.rotate_right = 1;
+	double	tmp_dir_x;
+	double	tmp_dir_y;
+	double	tmp_plane_x;
+	double	tmp_plane_y;
+
+	tmp_dir_x = game->player->dir_x * MOVE_SPEED;
+	tmp_dir_y = game->player->dir_y * MOVE_SPEED;
+	tmp_plane_x = game->player->plane_x * MOVE_SPEED;
+	tmp_plane_y = game->player->plane_y * MOVE_SPEED;
 	if (keycode == KEY_ESC)
 		destroy_win(game);
-	return (0);
-}
-
-int	key_released(int keycode, t_game *game)
-{
-	if (keycode == KEY_W)
-		game->key_flag.move_forward = 0;
-	if (keycode == KEY_S)
-		game->key_flag.move_backward = 0;
-	if (keycode == KEY_D)
-		game->key_flag.move_right = 0;
-	if (keycode == KEY_A)
-		game->key_flag.move_left = 0;
-	if (keycode == KEY_LEFT)
-		game->key_flag.rotate_left = 0;
-	if (keycode == KEY_RIGHT)
-		game->key_flag.rotate_right = 0;
-	if (keycode == KEY_ESC)
-		destroy_win(game);
-	return (0);
-}
-
-int	update_frame(t_game *game)
-{
-	t_key	key;
-
-	key = game->key_flag;
-	handle_movement(&key, game);
-	if (key.rotate_left == 1)
+	else if (keycode == KEY_W)
+	 	move_player(game, tmp_dir_x, tmp_dir_y);
+	else if (keycode == KEY_S)
+		move_player(game, -tmp_dir_x, -tmp_dir_y);
+	else if (keycode == KEY_D)
+		move_player(game, tmp_plane_x, tmp_plane_y);
+	else if (keycode == KEY_A)
+		move_player(game, -tmp_plane_x, -tmp_plane_y);
+	else if (keycode == KEY_LEFT)
 		rotate_vectors(game, LEFT);
-	if (key.rotate_right == 1)
+	else if (keycode == KEY_RIGHT)
 		rotate_vectors(game, RIGHT);
-	raycasting(game);
+	else
+		return (0);
+	executing(game);
 	return (0);
 }
 
-int	key_pressed(t_game *game)
+int	key_detector(t_game *game)
 {
-	mlx_hook(game->win, 2, 0, key_detector, game);
-	mlx_hook(game->win, 3, 0, key_released, game);
-	mlx_hook(game->win, 17, 0, destroy_win, game);
-	// mlx_loop_hook(game->mlx, update_frame, game->mlx);
+	mlx_hook(game->win, 2, 0, &update_frame, game);
+	mlx_hook(game->win, 17, 0, &destroy_win, game);
 	return (0);
 }
