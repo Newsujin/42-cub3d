@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:03:11 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 21:31:04 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/01/31 21:32:59 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 
 # define WIDTH	1920
 # define HEIGHT	1080
-# define ROTATION_SPEED 40
-# define MOVE_SPEED 0.08
+# define ROTATION_SPEED 50
+# define MOVE_SPEED 0.1
 # define LEFT 1
 # define RIGHT 2
 # define POS_X 1
