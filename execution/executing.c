@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 21:47:42 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/02/01 12:33:21 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	shoot_ray(t_game *game, t_dda *dda, t_raycast *ray, int i)
 {
 	init_dda(game, dda, ray, i);
 	apply_dda(game, dda);
-	find_collision_wall_direction(ray, *dda, dda->side);
+	find_collision_wall_direction(ray, dda->side);
 }
 
 void	raycasting(t_game *game)
