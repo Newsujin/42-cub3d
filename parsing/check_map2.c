@@ -6,7 +6,7 @@
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 23:04:22 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/30 23:37:19 by spark2           ###   ########.fr       */
+/*   Updated: 2024/02/01 14:40:14 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,7 @@ void	check_double_new_line(char	*map)
 				error("Error\nmap\n");
 		i++;
 	}
+	free(temp);
 }
 
 void	check_map2(t_game *game)
