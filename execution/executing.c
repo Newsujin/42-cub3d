@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/02/01 12:33:21 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/02/01 13:16:39 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	raycasting(t_game *game)
 	int			i;
 
 	i = 0;
-	while (i <= WIDTH)
+	while (i < WIDTH)
 	{
 		shoot_ray(game, &dda, &ray, i);
 		calculating_drawing_size(&dda, &ray);
