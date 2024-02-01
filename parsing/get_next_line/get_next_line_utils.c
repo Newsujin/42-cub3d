@@ -6,7 +6,7 @@
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 17:46:19 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/30 22:27:56 by spark2           ###   ########.fr       */
+/*   Updated: 2024/02/01 15:24:37 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,4 +112,33 @@ char	*ft_strjoin(char *s1, char const *s2)
 	}
 	str[ft_strlen(s1) + i] = 0;
 	return (str);
+}
+
+char	*ft_strjoin2(char *s1, char *s2, int s2_len, int count)
+{
+	char	*temp;
+	int		i;
+
+	i = 0;
+	temp = (char *)malloc(sizeof(char) * (count + s2_len + 1));
+	if (!temp)
+	{
+		free(s1);
+		return (0);
+	}
+	while (i < count)
+	{
+		temp[i] = s1[i];
+		i++;
+	}
+	i = 0;
+	while (i < s2_len)
+	{
+		temp[count + i] = s2[i];
+		i++;
+	}
+	temp[count + i] = '\0';
+	free(s1);
+	s1 = NULL;
+	return (temp);
 }
