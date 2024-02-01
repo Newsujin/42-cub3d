@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 15:37:09 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 23:05:23 by yerilee          ###   ########.fr       */
+/*   Created: 2024/02/01 13:37:37 by spark2            #+#    #+#             */
+/*   Updated: 2024/02/01 15:28:40 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,4 @@ int	main(int argc, char **argv)
 		error("Error\n");
 	parsing(&game, argv[1]);
 	executing(&game);
-	destroy_win(&game);
 }

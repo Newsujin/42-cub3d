@@ -6,7 +6,7 @@
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:50:07 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/30 23:36:23 by spark2           ###   ########.fr       */
+/*   Updated: 2024/02/01 13:55:29 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	parsing(t_game *game, char *argv);
 /* read_map */
 void	check_dir_rgb(char *line, t_game *game, int *count);
 int		check_line(char *line, int line_len, t_game *game);
-int		check_map(char **line, char **map_buf, t_game *game);
+int		check_map(char *line, char **map_buf, t_game *game);
 void	read_map(t_game *game);
 
 /* rgb */
