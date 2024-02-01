@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:59:12 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 16:31:37 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/02/01 12:28:25 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,18 @@ bool	check_wall(t_game *game, t_dda *dda)
 	return (hit);
 }
 
-void	find_collision_wall_direction(t_raycast *ray, t_dda dda, int side)
+void	find_collision_wall_direction(t_raycast *ray, int side)
 {
-	if (dda.step_x == -1 && side == WALL_X)
-		ray->tex_direction = EAST;
-	else if (dda.step_x == 1 && side == WALL_X)
-		ray->tex_direction = WEST;
-	else if (dda.step_y == 1 && side == WALL_Y)
+	if (side == WALL_X)
+	{
 		ray->tex_direction = NORTH;
-	else
-		ray->tex_direction = SOUTH;
+		if (ray->ray_dir_x > 0)
+			ray->tex_direction = SOUTH;
+	}
+	if (side == WALL_Y)
+	{
+		ray->tex_direction = WEST;
+		if (ray->ray_dir_y > 0)
+			ray->tex_direction = EAST;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:03:11 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 22:07:44 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/02/01 12:26:31 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	move_player(t_game *game, double x_change, double y_change);
 /* utils */
 double	ft_abs(double num);
 bool	check_wall(t_game *game, t_dda *dda);
-void	find_collision_wall_direction(t_raycast *ray, t_dda dda, int side);
+void	find_collision_wall_direction(t_raycast *ray, int side);
 
 
 #endif
