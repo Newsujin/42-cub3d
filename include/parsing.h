@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:50:07 by spark2            #+#    #+#             */
-/*   Updated: 2024/02/01 13:55:29 by spark2           ###   ########.fr       */
+/*   Updated: 2024/02/02 21:17:05 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void	check_rgb(char *line, t_game *game, int *count);
 /* utils */
 int		ft_free_2d(char **str, int flag);
 char	*no_new_line(char *line);
+char	*ft_strjoin2(char *s1, char *s2, int s2_len, int count);
 
 /* libft */
 int		ft_atoi(const char *str);
