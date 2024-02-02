@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 13:02:17 by spark2            #+#    #+#             */
-/*   Updated: 2024/02/01 14:49:04 by spark2           ###   ########.fr       */
+/*   Updated: 2024/02/02 21:36:46 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 void	parsing(t_game *game, char *argv)
 {
 	init_game(game, argv);
+	game->mlx = mlx_init();
+	if (game->mlx == (void *)0)
+		error("Error\nmlx\n");
 	read_map(game);
 	if (game->map == (void *)0)
 		error("Error\nmap\n");
@@ -23,9 +26,6 @@ void	parsing(t_game *game, char *argv)
 	init_player(game);
 	init_rgb(game);
 	init_buf(game);
-	game->mlx = mlx_init();
-	if (game->mlx == (void *)0)
-		error("Error\nmlx\n");
 	game->win = mlx_new_window(game->mlx, WIDTH, HEIGHT, "cub3D");
 	game->img->init = mlx_new_image(game->mlx,  WIDTH, HEIGHT);
 	game->img->data = (int *)mlx_get_data_addr(game->img->init, \
