@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:11:35 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/31 16:44:51 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/02/01 15:24:02 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,19 +66,22 @@ int	check_line(char *line, int line_len, t_game *game)
 	return (1);
 }
 
-int	check_map(char **line, char **map_buf, t_game *game)
+int	check_map(char *line, char **map_buf, t_game *game)
 {
-	if (check_line(*line, ft_strlen(*line), game) == 1)
+	char	*tmp;
+
+	tmp = *map_buf;
+	if (check_line(line, ft_strlen(line), game) == 1)
 	{
-		*map_buf = ft_strjoin(*map_buf, *line);
+		*map_buf = ft_strjoin2(tmp, line, ft_strlen(line), ft_strlen(tmp));
 		return (0);
 	}
 	else
 	{
 		free(*map_buf);
-		free(*line);
+		free(line);
 		*map_buf = NULL;
-		*line = NULL;
+		line = NULL;
 		return (1);
 	}
 }
@@ -102,7 +105,7 @@ void	read_map(t_game *game)
 			check_dir_rgb(line, game, &cnt);
 		else
 		{
-			if (check_map(&line, &map_buf, game) == 1)
+			if (check_map(line, &map_buf, game) == 1)
 				error("invalid input map Error\n");
 		}
 		free(line);
