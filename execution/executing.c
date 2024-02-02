@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 19:32:42 by yerilee           #+#    #+#             */
-/*   Updated: 2024/02/01 13:16:39 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/02/02 21:09:26 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,3 @@ void	executing(t_game *game)
 	key_detector(game);
 	mlx_loop(game->mlx);
 }
-

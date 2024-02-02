@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 21:47:56 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 21:47:57 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/02/02 21:08:59 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	init_side_dist(t_dda *dda, t_game *game, t_raycast *ray)
 
 void	init_dda(t_game *game, t_dda *dda, t_raycast *ray, int i)
 {
-	double camera;
+	double	camera;
 
 	camera = 2 * i / (double)WIDTH - 1;
 	ray->ray_dir_x = game->player->dir_x + game->player->plane_x * camera;

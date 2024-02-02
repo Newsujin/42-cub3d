@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:59:39 by yerilee           #+#    #+#             */
-/*   Updated: 2024/02/01 13:09:47 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/02/02 21:09:43 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	update_frame(int keycode, t_game *game)
 	if (keycode == KEY_ESC)
 		destroy_win(game);
 	else if (keycode == KEY_W)
-	 	move_player(game, tmp_dir_x, tmp_dir_y);
+		move_player(game, tmp_dir_x, tmp_dir_y);
 	else if (keycode == KEY_S)
 		move_player(game, -tmp_dir_x, -tmp_dir_y);
 	else if (keycode == KEY_D)

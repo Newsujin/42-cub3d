@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 20:44:07 by yerilee           #+#    #+#             */
-/*   Updated: 2024/01/31 21:45:08 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/02/02 21:11:43 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,8 @@ void	calculating_texture_y(t_game *game, t_dda *dda, t_raycast ray, int x)
 	{
 		ray.tex_y = (int)ray.tex_pos & 63;
 		ray.tex_pos += ray.step;
-		ray.color = game->text[ray.tex_direction].data[64 * ray.tex_y + ray.tex_x];
+		ray.color = game->text[ray.tex_direction] \
+					.data[64 * ray.tex_y + ray.tex_x];
 		if (dda->side == WALL_Y)
 			ray.color = (ray.color >> 1) & 8355711;
 		game->buf[y][x] = ray.color;
