@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:50:07 by spark2            #+#    #+#             */
-/*   Updated: 2024/02/02 21:17:05 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/02/02 21:20:56 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include "executing.h"
 # include "cub3d.h"
 # include "struct.h"
-
 
 /* check_map2 */
 int		check_map_end(char *map);
@@ -33,7 +32,6 @@ void	check_map2(t_game *game);
 void	overlap_direction(char *file1, char *file2);
 void	overlap_rgb(t_game *game);
 void	check_overlap(t_game *game);
-
 
 /* check */
 int		check_argv(char *argv);

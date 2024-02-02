@@ -6,7 +6,7 @@
 /*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 21:09:35 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/31 21:28:42 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/02/02 21:21:17 by yerilee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,17 +86,13 @@ typedef struct s_player
 
 typedef struct s_game
 {
-	/* map */
 	int				fd;
 	char			*map;
 	char			**map_2d;
-	/* player */
 	t_player		*player;
 	int				player_cnt;
-	/* mlx */
 	void			*mlx;
 	void			*win;
-	/* img */
 	t_img			*img;
 	t_img			text[4];
 	t_color			*color;
