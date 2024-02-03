@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+         #
+#    By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/15 15:37:35 by yerilee           #+#    #+#              #
-#    Updated: 2024/01/31 21:52:53 by yerilee          ###   ########.fr        #
+#    Updated: 2024/02/01 13:40:40 by spark2           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = cub3D
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 MLX_DIR = ./mlx
 MLX = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
