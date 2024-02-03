@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yerilee <yerilee@student.42.fr>            +#+  +:+       +#+        */
+/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:50:07 by spark2            #+#    #+#             */
-/*   Updated: 2024/02/02 21:20:56 by yerilee          ###   ########.fr       */
+/*   Updated: 2024/02/04 02:40:57 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,19 @@
 # include "cub3d.h"
 # include "struct.h"
 
-/* check_map2 */
-int		check_map_end(char *map);
-void	find_start_end_wall(char *map);
-int		only_space(char *map);
-void	check_wall2(char **map);
+/* check_map1 */
 long	go_to_second_line(char *map);
 void	check_double_new_line(char	*map);
+void	check_zero(char **map);
+void	check_wall2(char **map);
 void	check_map2(t_game *game);
+
+/* check_map2 */
+void	check_all_direction(char **map, int i, int j);
+int		valid_check(char c);
+int		check_map_end(char *map);
+int		only_space(char *map);
+void	find_start_end_wall(char *map);
 
 /* check_overlap */
 void	overlap_direction(char *file1, char *file2);
@@ -49,13 +54,15 @@ int		cnt_word(const char *s, char c);
 char	*ft_word_dup(const char *src, char c);
 char	**ft_split(char const *s, char c);
 
-/* init */
+/* init1 */
 void	init_texture(t_game *game);
-void	init_rgb(t_game *game);
-void	init_buf(t_game *game);
+void	init_game(t_game *game, char *file);
+
+/* init2 */
 char	find_location(t_game *game, char location, int i, int j);
 void	init_player(t_game *game);
-void	init_game(t_game *game, char *file);
+void	init_rgb(t_game *game);
+void	init_buf(t_game *game);
 
 /* parsing */
 void	parsing(t_game *game, char *argv);
