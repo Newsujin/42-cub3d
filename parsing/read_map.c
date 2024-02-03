@@ -6,13 +6,13 @@
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:11:35 by spark2            #+#    #+#             */
-/*   Updated: 2024/02/01 15:24:02 by spark2           ###   ########.fr       */
+/*   Updated: 2024/02/04 02:13:11 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/parsing.h"
 
-/* 동서남북 or 천장,바닥 값 체크 */
+/* 동서남북 or 천장,바닥 값 체크 (개행만 있는 행 -> 에러 처리) */
 void	check_dir_rgb(char *line, t_game *game, int *count)
 {
 	char	**tmp;
@@ -20,7 +20,6 @@ void	check_dir_rgb(char *line, t_game *game, int *count)
 	tmp = ft_split(line, ' ');
 	if (tmp == (void *)0 || tmp[0] == (void *)0)
 		error("dir_rgb_split Error\n");
-	/* 개행만 있는 행 -> 에러 처리 */
 	if (line[0] == '\n' && !(line[1]))
 	{
 		ft_free_2d(tmp, 0);
