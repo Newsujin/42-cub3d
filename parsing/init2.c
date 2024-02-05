@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sujin <sujin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 02:14:32 by spark2            #+#    #+#             */
-/*   Updated: 2024/02/04 02:16:11 by spark2           ###   ########.fr       */
+/*   Updated: 2024/02/06 03:59:33 by sujin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,15 @@ void	init_buf(t_game *game)
 		}
 		i++;
 	}
+}
+
+void	init_struct_mlx(t_game *game)
+{
+	init_player(game);
+	init_rgb(game);
+	init_buf(game);
+	game->win = mlx_new_window(game->mlx, WIDTH, HEIGHT, "cub3D");
+	game->img->init = mlx_new_image(game->mlx, WIDTH, HEIGHT);
+	game->img->data = (int *)mlx_get_data_addr(game->img->init, \
+	&(game->img->bpp), &(game->img->size_l), &(game->img->endian));
 }

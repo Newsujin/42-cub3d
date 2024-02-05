@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map2.c                                       :+:      :+:    :+:   */
+/*   check_map_detail.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sujin <sujin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 02:33:10 by spark2            #+#    #+#             */
-/*   Updated: 2024/02/04 02:38:30 by spark2           ###   ########.fr       */
+/*   Updated: 2024/02/06 04:06:30 by sujin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,33 @@
 
 void	check_all_direction(char **map, int i, int j)
 {
-	if (map[i - 1] && valid_check(map[i - 1][j]))
-		error("Error\ninvalid map\n");
-	else if (map[i - 1] && valid_check(map[i - 1][j - 1]))
-		error("Error\ninvalid map\n");
-	else if (map[i - 1] && valid_check(map[i - 1][j + 1]))
-		error("Error\ninvalid map\n");
-	else if (map[i] && valid_check(map[i][j - 1]))
-		error("Error\ninvalid map\n");
-	else if (map[i] && valid_check(map[i][j + 1]))
-		error("Error\ninvalid map\n");
-	else if (map[i + 1] && valid_check(map[i + 1][j]))
-		error("Error\ninvalid map\n");
-	else if (map[i + 1] && valid_check(map[i + 1][j - 1]))
-		error("Error\ninvalid map\n");
-	else if (map[i + 1] && valid_check(map[i + 1][j + 1]))
-		error("Error\ninvalid map\n");
+	if (map[i - 1])
+	{
+		if (is_null_space(map[i - 1][j]) || is_null_space(map[i - 1][j - 1]) ||
+			is_null_space(map[i - 1][j + 1]))
+		error("invalid map Error\n");
+	}
+	else if (map[i])
+	{
+		if (is_null_space(map[i][j - 1]) || is_null_space(map[i][j + 1]))
+			error("invalid map Error\n");
+	}
+	else if (map[i + 1])
+	{
+		if (is_null_space(map[i + 1][j]) || is_null_space(map[i + 1][j - 1]) ||
+			is_null_space(map[i + 1][j + 1]))
+			error("invalid map Error\n");
+	}
 }
 
-int	valid_check(char c)
+int	is_null_space(char c)
 {
 	if (c == '\0' || c == ' ')
 		return (1);
 	return (0);
 }
 
-int	check_map_end(char *map)
+int	check_wall_top_bottom(char *map)
 {
 	int	i;
 
@@ -69,7 +70,7 @@ int	only_space(char *map)
 	return (flag);
 }
 
-void	find_start_end_wall(char *map)
+void	check_wall_left_right(char *map)
 {
 	int	len;
 	int	first_wall;
@@ -83,5 +84,5 @@ void	find_start_end_wall(char *map)
 		first_wall++;
 	}
 	if (map[first_wall] != '1' && map[len - 1] != '1')
-		error("Error\nfirst_end_wall\n");
+		error("wall_left_right Error\n");
 }
