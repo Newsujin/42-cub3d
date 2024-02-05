@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_overlap.c                                    :+:      :+:    :+:   */
+/*   check_dup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sujin <sujin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/30 22:59:52 by spark2            #+#    #+#             */
-/*   Updated: 2024/01/30 23:02:23 by spark2           ###   ########.fr       */
+/*   Created: 2024/02/06 03:52:20 by sujin             #+#    #+#             */
+/*   Updated: 2024/02/06 03:57:43 by sujin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/parsing.h"
 
-void	overlap_direction(char *file1, char *file2)
+void	check_ewsn_dup(char *file1, char *file2)
 {
 	if (!(ft_strncmp(file1, file2, ft_strlen(file2))))
-		error("Error\noverlap rgb\n");
+		error("ewsn file dup Error\n");
 }
 
-void	overlap_rgb(t_game *game)
+void	check_rgb_dup(t_game *game)
 {
 	int	i;
 
@@ -29,21 +29,21 @@ void	overlap_rgb(t_game *game)
 			return ;
 		i++;
 	}
-	error("Error\nsame rgb\n");
+	error("rgb dup Error\n");
 }
 
-void	check_overlap(t_game *game)
+void	check_dup(t_game *game)
 {
 	int		i;
 	int		j;
-	char	*temp[5];
+	char	*tmp[5];
 
 	i = -1;
-	temp[0] = game->text[NORTH].path;
-	temp[1] = game->text[SOUTH].path;
-	temp[2] = game->text[WEST].path;
-	temp[3] = game->text[EAST].path;
-	temp[4] = 0;
+	tmp[0] = game->text[NORTH].path;
+	tmp[1] = game->text[SOUTH].path;
+	tmp[2] = game->text[WEST].path;
+	tmp[3] = game->text[EAST].path;
+	tmp[4] = 0;
 	while (++i < 4)
 	{
 		j = -1;
@@ -52,8 +52,8 @@ void	check_overlap(t_game *game)
 			if (i == j)
 				continue ;
 			else
-				overlap_direction(temp[i], temp[j]);
+				check_ewsn_dup(tmp[i], tmp[j]);
 		}
 	}
-	overlap_rgb(game);
+	check_rgb_dup(game);
 }

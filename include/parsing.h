@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sujin <sujin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:50:07 by spark2            #+#    #+#             */
-/*   Updated: 2024/02/04 02:40:57 by spark2           ###   ########.fr       */
+/*   Updated: 2024/02/06 04:43:27 by sujin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,34 +19,34 @@
 # include "cub3d.h"
 # include "struct.h"
 
+/* check_dup */
+void	check_ewsn_dup(char *file1, char *file2);
+void	check_rgb_dup(t_game *game);
+void	check_dup(t_game *game);
+
 /* check_map1 */
-long	go_to_second_line(char *map);
-void	check_double_new_line(char	*map);
+long	go_to_first_line(char *map);
+void	check_double_new_line(char *map);
 void	check_zero(char **map);
 void	check_wall2(char **map);
-void	check_map2(t_game *game);
+void	check_map_detail(t_game *game);
 
 /* check_map2 */
 void	check_all_direction(char **map, int i, int j);
-int		valid_check(char c);
-int		check_map_end(char *map);
+int		is_null_space(char c);
+int		check_wall_top_bottom(char *map);
 int		only_space(char *map);
-void	find_start_end_wall(char *map);
-
-/* check_overlap */
-void	overlap_direction(char *file1, char *file2);
-void	overlap_rgb(t_game *game);
-void	check_overlap(t_game *game);
+void	check_wall_left_right(char *map);
 
 /* check */
 int		check_argv(char *argv);
 
-/* direction */
-void	put_mlx_img(t_game *game, char *path, t_img *img);
-void	put_img(int *count, t_game *game, char *temp, int flag);
+/* ewsn */
 void	check_extension(char *file);
-void	direction_chose(int	*count, t_game *game, char *new_line, char *temp);
-void	check_direction(char *line, t_game *game, int *count);
+void	set_ewsn(int *cnt, t_game *game, char *path, char *direction);
+void	put_ewsn_img(int *cnt, t_game *game, char *path, int direction);
+void	put_mlx_img(t_game *game, char *path, t_img *img);
+void	check_ewsn(char *line, t_game *game, int *count);
 
 /* ft_split */
 void	*ft_free(char **ptr, int i);
@@ -63,23 +63,29 @@ char	find_location(t_game *game, char location, int i, int j);
 void	init_player(t_game *game);
 void	init_rgb(t_game *game);
 void	init_buf(t_game *game);
+void	init_struct_mlx(t_game *game);
 
 /* parsing */
 void	parsing(t_game *game, char *argv);
 
 /* read_map */
-void	check_dir_rgb(char *line, t_game *game, int *count);
-int		check_line(char *line, int line_len, t_game *game);
-int		check_map(char *line, char **map_buf, t_game *game);
+void	check_ewsn_rgb(char *line, t_game *game, int *count);
+void	check_map(char *line, char **map_buf, t_game *game);
+int		check_map_value(char *line, t_game *game);
 void	read_map(t_game *game);
 
 /* rgb */
-void	check_rgb(char *line, t_game *game, int *count);
+void	set_rgb(int *cnt, t_game *game, char *path, char *direction);
+void	put_rgb(char *path, int *cnt, int *array, int *flag);
+void	check_rgb_range(char *tmp);
+void	check_rgb_cnt(char **rgb_list, int *array);
+void	check_rgb(char *line, t_game *game, int *cnt);
 
 /* utils */
 int		ft_free_2d(char **str, int flag);
-char	*no_new_line(char *line);
-char	*ft_strjoin2(char *s1, char *s2, int s2_len, int count);
+char	*delete_new_line(char *line);
+char	*ft_strjoin_free(char *s1, char *s2, int s2_len, int count);
+void    ft_error(char **map_buf, char *line);
 
 /* libft */
 int		ft_atoi(const char *str);

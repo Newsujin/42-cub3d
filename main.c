@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sujin <sujin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 13:37:37 by spark2            #+#    #+#             */
-/*   Updated: 2024/02/01 15:28:40 by spark2           ###   ########.fr       */
+/*   Updated: 2024/02/06 03:40:28 by sujin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	error(char *s)
 		write(1, &s[i], 1);
 		i++;
 	}
-	exit(0); //에러인데 0 반환인 이유?
+	exit(1);
 }
 
 void	system_check(void)
@@ -35,9 +35,8 @@ int	main(int argc, char **argv)
 	atexit(system_check);
 	t_game	game;
 
-	(void)argv;
 	if (argc != 2 || check_argv(argv[1]))
-		error("Error\n");
+		error("arg Error\n");
 	parsing(&game, argv[1]);
 	executing(&game);
 }

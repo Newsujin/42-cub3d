@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_map1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sujin <sujin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 23:04:22 by spark2            #+#    #+#             */
-/*   Updated: 2024/02/04 02:38:37 by spark2           ###   ########.fr       */
+/*   Updated: 2024/02/06 04:40:04 by sujin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/parsing.h"
 
-long	go_to_second_line(char *map)
+long	go_to_first_line(char *map)
 {
 	long	i;
 
@@ -26,21 +26,18 @@ long	go_to_second_line(char *map)
 	return (i);
 }
 
-void	check_double_new_line(char	*map)
+void	check_double_new_line(char *map)
 {
-	char	*temp;
 	int		i;
 
 	i = 0;
-	temp = ft_strcpy(map);
-	while (temp[i])
+	while (map[i])
 	{
-		if (temp[i] && temp[i] == '\n')
-			if (temp[i + 1] && temp[i + 1] == '\n')
-				error("Error\nmap\n");
+		if (map[i] && map[i] == '\n')
+			if (map[i + 1] && map[i + 1] == '\n')
+				error("double new line Error\n");
 		i++;
 	}
-	free(temp);
 }
 
 void	check_zero(char **map)
@@ -72,34 +69,33 @@ void	check_wall2(char **map)
 	end_line = 0;
 	while (map[end_line])
 		end_line++;
-	if (check_map_end(map[0]) || check_map_end(map[end_line - 1]))
-		error("Error\nwall\n");
+	if (check_wall_top_bottom(map[0]) || \
+		check_wall_top_bottom(map[end_line - 1]))
+		error("wall Error\n");
 	i = -1;
 	while (map[++i])
 	{
-		if (only_space(map[i]) == 1)
+		if (only_space(map[i]))
 			continue ;
-		find_start_end_wall(map[i]);
+		check_wall_left_right(map[i]);
 	}
 }
 
-void	check_map2(t_game *game)
+void	check_map_detail(t_game *game)
 {
-	char	**map_2d;
 	long	location;
 	int		hei;
 
 	hei = 0;
-	if (game->player_cnt >= 2 || game->player_cnt == 0)
-		error("Error\nplay_direction\n");
-	location = go_to_second_line(game->map);
+	if (game->player_cnt >= 2 || !game->player_cnt)
+		error("player_cnt Error\n");
+	location = go_to_first_line(game->map);
 	check_double_new_line(game->map + location);
-	map_2d = ft_split(game->map, '\n');
-	if (map_2d == (void *)0)
-		error("Error\nmap malloc fail\n");
-	check_zero(map_2d);
-	check_wall2(map_2d);
-	game->map_2d = map_2d;
+	game->map_2d = ft_split(game->map, '\n');
+	if (!game->map_2d)
+		error("malloc Error\n");
+	check_zero(game->map_2d); 
+	check_wall2(game->map_2d);
 	while (game->map_2d[hei])
 		hei++;
 	game->height = hei;

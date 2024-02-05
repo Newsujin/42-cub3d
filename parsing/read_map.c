@@ -3,114 +3,88 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sujin <sujin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:11:35 by spark2            #+#    #+#             */
-/*   Updated: 2024/02/04 02:13:11 by spark2           ###   ########.fr       */
+/*   Updated: 2024/02/06 04:21:16 by sujin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/parsing.h"
 
-/* 동서남북 or 천장,바닥 값 체크 (개행만 있는 행 -> 에러 처리) */
-void	check_dir_rgb(char *line, t_game *game, int *count)
+void	check_ewsn_rgb(char *line, t_game *game, int *cnt)
 {
 	char	**tmp;
 
-	tmp = ft_split(line, ' ');
-	if (tmp == (void *)0 || tmp[0] == (void *)0)
-		error("dir_rgb_split Error\n");
 	if (line[0] == '\n' && !(line[1]))
-	{
-		ft_free_2d(tmp, 0);
-		return ;
-	}
-	else if (!(ft_strncmp(tmp[0], "F", 1)) || \
-		!(ft_strncmp(tmp[0], "C", 1)))
-		check_rgb(line, game, count);
-	else if (!(ft_strncmp(tmp[0], "NO", 2)) || \
-		!(ft_strncmp(tmp[0], "SO", 2)) || \
+			return ;
+	if (only_space(line))
+		error("only space Error\n");
+	tmp = ft_split(line, ' ');
+	if (!tmp)
+		error("split Error\n");
+	if (!(ft_strncmp(tmp[0], "EA", 2)) || \
 		!(ft_strncmp(tmp[0], "WE", 2)) || \
-		!(ft_strncmp(tmp[0], "EA", 2)))
-		check_direction(line, game, count);
+		!(ft_strncmp(tmp[0], "SO", 2)) || \
+		!(ft_strncmp(tmp[0], "NO", 2)))
+		check_ewsn(line, game, cnt);
+	else if (!(ft_strncmp(tmp[0], "C", 1)) || \
+		!(ft_strncmp(tmp[0], "F", 1)))
+		check_rgb(line, game, cnt);
 	else
-		error("invalid dir_rgb Error\n");
+		error("invalid ewsn rgb Error\n");
 	ft_free_2d(tmp, 0);
 }
 
-int	check_line(char *line, int line_len, t_game *game)
-{
-	int	i;
-
-	i = -1;
-	while (++i < line_len)
-	{
-		if (line[i] == '0' || line[i] == '1' || line[i] == ' ' \
-			|| line[i] == '\n')
-			continue ;
-		else if (line[i] == 'N' || line[i] == 'S' || \
-			line[i] == 'W' || line[i] == 'E')
-			game->player_cnt++;
-		else
-		{
-			if (line_len - 1 == i)
-			{
-				if (line[i] != '\n')
-					return (0);
-			}
-			else
-				return (0);
-		}
-	}
-	return (1);
-}
-
-int	check_map(char *line, char **map_buf, t_game *game)
+void	check_map(char *line, char **map_buf, t_game *game)
 {
 	char	*tmp;
 
 	tmp = *map_buf;
-	if (check_line(line, ft_strlen(line), game) == 1)
-	{
-		*map_buf = ft_strjoin2(tmp, line, ft_strlen(line), ft_strlen(tmp));
-		return (0);
-	}
+	if (check_map_value(line, game))
+		*map_buf = ft_strjoin_free(tmp, line, ft_strlen(line), ft_strlen(tmp));
 	else
-	{
-		free(*map_buf);
-		free(line);
-		*map_buf = NULL;
-		line = NULL;
-		return (1);
-	}
+		ft_error(map_buf, line);
 }
 
-/* map 한 줄씩 읽기 */
+int	check_map_value(char *line, t_game *game)
+{
+	size_t	i;
+
+	i = -1;
+	while (++i < ft_strlen(line))
+	{
+		if (line[i] == '0' || line[i] == '1' || line[i] == ' ' \
+			|| line[i] == '\n')
+			continue ;
+		else if (line[i] == 'E' || line[i] == 'W' || \
+			line[i] == 'S' || line[i] == 'N')
+			game->player_cnt++;
+		else
+			return (0);
+	}
+	return (1);
+}
+
 void	read_map(t_game *game)
 {
-	char	*map_buf;
-	char	*line;
 	int		cnt;
+	char	*line;
 
-	map_buf = NULL;
-	line = NULL;
 	cnt = 0;
+	line = NULL;
 	while (1)
 	{
 		line = get_next_line(game->fd);
 		if (!line)
 			break ;
 		if (cnt <= 5)
-			check_dir_rgb(line, game, &cnt);
+			check_ewsn_rgb(line, game, &cnt);
 		else
-		{
-			if (check_map(line, &map_buf, game) == 1)
-				error("invalid input map Error\n");
-		}
+			check_map(line, &game->map, game);
 		free(line);
 		line = NULL;
 	}
 	close(game->fd);
-	game->map = map_buf;
 	free(line);
 }
