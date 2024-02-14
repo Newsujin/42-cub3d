@@ -6,9 +6,11 @@
 /*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:54:08 by spark2            #+#    #+#             */
-/*   Updated: 2023/03/23 20:05:52 by spark2           ###   ########.fr       */
+/*   Updated: 2024/02/14 23:15:47 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../include/parsing.h"
 
 int	ft_atoi(const char *str)
 {
@@ -32,5 +34,7 @@ int	ft_atoi(const char *str)
 		res = res * 10 + str[i] - '0';
 		i++;
 	}
+	if (!((0 <= (int)(sign * res)) && ((int)(sign * res) <= 255)))
+		error("Error\nrgb range\n");
 	return ((int)(sign * res));
 }

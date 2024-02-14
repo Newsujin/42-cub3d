@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sujin <sujin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 15:20:04 by spark2            #+#    #+#             */
-/*   Updated: 2024/02/06 03:19:38 by sujin            ###   ########.fr       */
+/*   Updated: 2024/02/14 22:41:25 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,5 @@ void	ft_error(char **map_buf, char *line)
 	free(line);
 	*map_buf = NULL;
 	line = NULL;
-	error("invalid map Error\n");
+	error("Error\ninvalid map\n");
 }

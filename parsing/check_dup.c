@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_dup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sujin <sujin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 03:52:20 by sujin             #+#    #+#             */
-/*   Updated: 2024/02/06 03:57:43 by sujin            ###   ########.fr       */
+/*   Updated: 2024/02/06 17:27:35 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	check_ewsn_dup(char *file1, char *file2)
 {
 	if (!(ft_strncmp(file1, file2, ft_strlen(file2))))
-		error("ewsn file dup Error\n");
+		error("Error\newsn file dup\n");
 }
 
 void	check_rgb_dup(t_game *game)
@@ -29,7 +29,7 @@ void	check_rgb_dup(t_game *game)
 			return ;
 		i++;
 	}
-	error("rgb dup Error\n");
+	error("Error\nrgb dup\n");
 }
 
 void	check_dup(t_game *game)

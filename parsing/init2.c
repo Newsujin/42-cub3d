@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   init2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sujin <sujin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 02:14:32 by spark2            #+#    #+#             */
-/*   Updated: 2024/02/06 03:59:33 by sujin            ###   ########.fr       */
+/*   Updated: 2024/02/14 21:48:00 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/parsing.h"
 
-char	find_location(t_game *game, char location, int i, int j)
+char	init_player_position(t_game *game, char location, int i, int j)
 {
 	game->player->pos_x = i + 0.5;
 	game->player->pos_y = j + 0.5;
@@ -56,7 +56,7 @@ void	init_player(t_game *game)
 		j = 0;
 		while (game->map_2d[i][j])
 		{
-			if (find_location(game, game->map_2d[i][j], i, j))
+			if (init_player_position(game, game->map_2d[i][j], i, j))
 				return ;
 			j++;
 		}
@@ -78,22 +78,15 @@ void	init_buf(t_game *game)
 	int	j;
 
 	game->buf = (int **)malloc(sizeof(int *) * HEIGHT);
-	i = 0;
-	while (i < HEIGHT)
-	{
+	i = -1;
+	while (++i < HEIGHT)
 		game->buf[i] = (int *)malloc(sizeof(int) * WIDTH);
-		i++;
-	}
-	i = 0;
-	while (i < HEIGHT)
+	i = -1;
+	while (++i < HEIGHT)
 	{
-		j = 0;
-		while (j < WIDTH)
-		{
+		j = -1;
+		while (++j < WIDTH)
 			game->buf[i][j] = 0;
-			j++;
-		}
-		i++;
 	}
 }
 

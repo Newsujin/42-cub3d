@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sujin <sujin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:50:07 by spark2            #+#    #+#             */
-/*   Updated: 2024/02/06 04:43:27 by sujin            ###   ########.fr       */
+/*   Updated: 2024/02/14 22:58:13 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,19 @@ void	check_ewsn_dup(char *file1, char *file2);
 void	check_rgb_dup(t_game *game);
 void	check_dup(t_game *game);
 
-/* check_map1 */
+/* check_map */
 long	go_to_first_line(char *map);
 void	check_double_new_line(char *map);
 void	check_zero(char **map);
-void	check_wall2(char **map);
+void	check_all_direction(char **map, int i, int j);
 void	check_map_detail(t_game *game);
 
-/* check_map2 */
-void	check_all_direction(char **map, int i, int j);
+/* check_wall */
 int		is_null_space(char c);
-int		check_wall_top_bottom(char *map);
 int		only_space(char *map);
+int		check_wall_top_bottom(char *map);
 void	check_wall_left_right(char *map);
-
-/* check */
-int		check_argv(char *argv);
+void	check_wall_valid(char **map);
 
 /* ewsn */
 void	check_extension(char *file);
@@ -55,17 +52,18 @@ char	*ft_word_dup(const char *src, char c);
 char	**ft_split(char const *s, char c);
 
 /* init1 */
-void	init_texture(t_game *game);
+void	init_img(t_game *game);
 void	init_game(t_game *game, char *file);
 
 /* init2 */
-char	find_location(t_game *game, char location, int i, int j);
+char	init_player_position(t_game *game, char location, int i, int j);
 void	init_player(t_game *game);
 void	init_rgb(t_game *game);
 void	init_buf(t_game *game);
 void	init_struct_mlx(t_game *game);
 
 /* parsing */
+int		check_argv(char *argv);
 void	parsing(t_game *game, char *argv);
 
 /* read_map */
@@ -85,7 +83,7 @@ void	check_rgb(char *line, t_game *game, int *cnt);
 int		ft_free_2d(char **str, int flag);
 char	*delete_new_line(char *line);
 char	*ft_strjoin_free(char *s1, char *s2, int s2_len, int count);
-void    ft_error(char **map_buf, char *line);
+void	ft_error(char **map_buf, char *line);
 
 /* libft */
 int		ft_atoi(const char *str);
