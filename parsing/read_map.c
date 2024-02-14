@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sujin <sujin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark2 <spark2@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:11:35 by spark2            #+#    #+#             */
-/*   Updated: 2024/02/06 04:21:16 by sujin            ###   ########.fr       */
+/*   Updated: 2024/02/14 22:40:29 by spark2           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	check_ewsn_rgb(char *line, t_game *game, int *cnt)
 	char	**tmp;
 
 	if (line[0] == '\n' && !(line[1]))
-			return ;
+		return ;
 	if (only_space(line))
-		error("only space Error\n");
+		error("Error\nonly space\n");
 	tmp = ft_split(line, ' ');
 	if (!tmp)
-		error("split Error\n");
+		error("Error\nsplit\n");
 	if (!(ft_strncmp(tmp[0], "EA", 2)) || \
 		!(ft_strncmp(tmp[0], "WE", 2)) || \
 		!(ft_strncmp(tmp[0], "SO", 2)) || \
@@ -32,7 +32,7 @@ void	check_ewsn_rgb(char *line, t_game *game, int *cnt)
 		!(ft_strncmp(tmp[0], "F", 1)))
 		check_rgb(line, game, cnt);
 	else
-		error("invalid ewsn rgb Error\n");
+		error("Error\ninvalid ewsn rgb\n");
 	ft_free_2d(tmp, 0);
 }
 
